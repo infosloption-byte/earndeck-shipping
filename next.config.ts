@@ -1,0 +1,10 @@
+import type { NextConfig } from 'next';
+const nextConfig: NextConfig = {reactStrictMode:true,poweredByHeader:false,async redirects(){return [
+{source:'/services/draft',destination:'/services/draft-survey',permanent:true},
+{source:'/services/bunker',destination:'/services/bunker-quantity-survey',permanent:true},
+{source:'/services/cargo',destination:'/services/cargo-survey',permanent:true},
+{source:'/services/container',destination:'/services/container-survey',permanent:true},
+{source:'/services/ism',destination:'/services/ism-audit',permanent:true},
+{source:'/services/mlc',destination:'/services/mlc-inspection',permanent:true}
+];}};
+export default nextConfig;
