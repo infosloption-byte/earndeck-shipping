@@ -18,5 +18,5 @@ export function NavigationProgress(){
   return()=>document.removeEventListener('click',onClick);
  },[]);
  useEffect(()=>{if(!loading)return;const timeout=window.setTimeout(()=>setLoading(false),12000);return()=>window.clearTimeout(timeout)},[loading]);
- return loading?<div className="route-progress" role="status" aria-live="polite" aria-label="Loading page"><img src="/earndeck-logo.webp" alt="Earndeck Shipping"/><div className="route-progress-line"/><p>Navigating to your destination</p></div>:null;
+ return loading?<div className="route-progress" role="status" aria-live="polite" aria-label="Loading page"><img src="/earndeck-logo.png" alt="Earndeck Shipping"/><div className="route-progress-line"/><p>Navigating to your destination</p></div>:null;
 }

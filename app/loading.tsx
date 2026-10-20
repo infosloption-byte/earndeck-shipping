@@ -1,1 +1,1 @@
-export default function Loading(){return <div className="route-progress" role="status" aria-live="polite"><img src="/earndeck-logo.webp" alt="Earndeck Shipping"/><div className="route-progress-line"/><p>Loading maritime services</p></div>}
+export default function Loading(){return <div className="route-progress" role="status" aria-live="polite"><img src="/earndeck-logo.png" alt="Earndeck Shipping"/><div className="route-progress-line"/><p>Loading maritime services</p></div>}
