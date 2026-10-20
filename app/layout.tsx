@@ -35,6 +35,7 @@ export const metadata: Metadata = {
     'Marine surveying, cargo and container inspections, bunker and draft surveys, and maritime audits across Sri Lanka.',
   openGraph: { siteName: site.name, type: 'website', locale: 'en_LK' },
   robots: { index: true, follow: true },
+  icons: { icon: '/earndeck-logo.png', apple: '/earndeck-logo.png' },
 };
 
 export const viewport: Viewport = {

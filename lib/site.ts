@@ -9,7 +9,7 @@ export const site = {
 
 export const ports = ['Colombo', 'Galle', 'Trincomalee', 'Hambantota'];
 
-export type ServiceGroup = 'Cargo & Quantity' | 'Vessel & Fuel' | 'Compliance & Audit';
+export type ServiceGroup = 'Cargo & Quantity' | 'Vessel & Fuel' | 'Technical & Navigation' | 'Compliance & Audit';
 export type IconName =
   | 'scale'
   | 'fuel'
@@ -23,7 +23,8 @@ export type IconName =
 
 export const serviceGroups: { name: ServiceGroup; blurb: string }[] = [
   { name: 'Cargo & Quantity', blurb: 'Quantity, condition and certification of cargo.' },
-  { name: 'Vessel & Fuel', blurb: 'Bunkers, vessel inspections, purchase decisions and handover records.' },
+  { name: 'Vessel & Fuel', blurb: 'Fuel measurement and charter handover surveys.' },
+  { name: 'Technical & Navigation', blurb: 'Hull, machinery, vetting, compass and vessel condition services.' },
   { name: 'Compliance & Audit', blurb: 'Safety, labour and management-system reviews.' },
 ];
 
@@ -135,7 +136,7 @@ export const services = [
     slug: 'hull-machinery-inspection',
     name: 'Hull & Machinery Inspections',
     category: 'Vessel Technical Condition',
-    group: 'Vessel & Fuel',
+    group: 'Technical & Navigation',
     icon: 'ship',
     description: 'Independent hull, machinery condition and repair-progress inspections.',
     details: 'Technical condition observations covering accessible hull and machinery components, damage and repair works.',
@@ -145,7 +146,7 @@ export const services = [
     slug: 'pre-purchase-vetting',
     name: 'Pre-Purchase Inspections & Ship Vetting',
     category: 'Vessel Acquisition',
-    group: 'Vessel & Fuel',
+    group: 'Technical & Navigation',
     icon: 'shield',
     description: 'Technical condition and operational document reviews supporting vessel acquisition decisions.',
     details: 'Pre-purchase surveys and ship vetting assess agreed technical, operational and compliance aspects before an acquisition or charter decision.',
@@ -155,7 +156,7 @@ export const services = [
     slug: 'compass-adjustment',
     name: 'Compass Adjustment & Magnetic Correction',
     category: 'Navigation & Safety',
-    group: 'Vessel & Fuel',
+    group: 'Technical & Navigation',
     icon: 'ship',
     description: 'Magnetic compass adjustment, deviation assessment and navigation-related reporting.',
     details: 'Compass adjustment supports the reliability of a vessel’s magnetic heading reference through agreed inspection and correction work.',
@@ -165,7 +166,7 @@ export const services = [
     slug: 'pi-condition-survey',
     name: 'P&I Condition Surveys',
     category: 'Vessel Risk & Condition',
-    group: 'Vessel & Fuel',
+    group: 'Technical & Navigation',
     icon: 'shield',
     description: 'Independent vessel condition inspections for marine risk and protection-and-indemnity considerations.',
     details: 'P&I condition surveys document observable vessel conditions and risks according to the agreed scope for owners, managers and marine insurers.',
