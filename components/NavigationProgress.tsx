@@ -8,7 +8,7 @@ export function NavigationProgress(){
   const onClick=(event:MouseEvent)=>{
    const target=event.target;
    if(!(target instanceof Element))return;
-   const anchor=target.closest('a[href]');
+   const anchor=target.closest<HTMLAnchorElement>('a[href]');
    if(!anchor||event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||anchor.target==='_blank')return;
    const url=new URL(anchor.href,window.location.href);
    if(url.origin!==window.location.origin||url.pathname===window.location.pathname)return;
