@@ -23,7 +23,7 @@ export type IconName =
 
 export const serviceGroups: { name: ServiceGroup; blurb: string }[] = [
   { name: 'Cargo & Quantity', blurb: 'Quantity, condition and certification of cargo.' },
-  { name: 'Vessel & Fuel', blurb: 'Bunkers and vessel handover records.' },
+  { name: 'Vessel & Fuel', blurb: 'Bunkers, vessel inspections, purchase decisions and handover records.' },
   { name: 'Compliance & Audit', blurb: 'Safety, labour and management-system reviews.' },
 ];
 
@@ -131,6 +131,26 @@ export const services = [
       'Coordinated audits may combine relevant ISM, ISPS and MLC review activities based on the vessel and agreed audit scope.',
     points: ['Combined audit planning', 'Coordinated site review', 'Consolidated observations'],
   },
+  {
+    slug: 'hull-machinery-inspection',
+    name: 'Hull & Machinery Inspections',
+    category: 'Vessel Technical Condition',
+    group: 'Vessel & Fuel',
+    icon: 'ship',
+    description: 'Independent hull, machinery condition and repair-progress inspections.',
+    details: 'Technical condition observations covering accessible hull and machinery components, damage and repair works.',
+    points: ['Hull and machinery condition checks','Damage documentation','Repair monitoring and reporting'],
+  },
+  {
+    slug: 'pre-purchase-vetting',
+    name: 'Pre-Purchase Inspections & Ship Vetting',
+    category: 'Vessel Acquisition',
+    group: 'Vessel & Fuel',
+    icon: 'shield',
+    description: 'Technical condition and operational document reviews supporting vessel acquisition decisions.',
+    details: 'Pre-purchase surveys and ship vetting assess agreed technical, operational and compliance aspects before an acquisition or charter decision.',
+    points: ['Condition and machinery review','Operational records and documentation','Observations for purchase due diligence'],
+  },
 ] as const;
 
 export type Service = (typeof services)[number];
@@ -174,6 +194,14 @@ export const scenarios: { id: string; label: string; hint: string; slugs: Servic
     slugs: ['ism-audit', 'mlc-inspection', 'harmonized-audit'],
   },
 ];
+
+export const team = [
+  { name: 'Ajith Fernando', role: 'Director of Operations', description: 'Operations leadership and marine industry coordination.' },
+  { name: 'Hasitha Sandaruwan', role: 'Head of Operations', description: 'Operational planning and survey coordination.' },
+  { name: 'Prasanga Mallawaarachchi', role: 'Marine Surveyor', description: 'Marine surveying and vessel-related inspections.' },
+  { name: 'Clishal Perera', role: 'Marine Surveyor', description: 'Marine inspection and survey assignments.' },
+] as const;
+// Team roster is based on publicly available profiles and must be confirmed by the company before launch.
 
 export const process = [
   {
