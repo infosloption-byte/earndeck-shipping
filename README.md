@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:5176. For production checks, run `npm run typecheck` and `npm run build`.
+Open http://localhost:5177. For production checks, run `npm run typecheck` and `npm run build`.
 
 ## Features
 
