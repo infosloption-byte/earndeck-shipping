@@ -1,1 +1,27 @@
-import Link from 'next/link';export default function NotFound(){return <section className="page-hero"><div className="shell"><div className="eyebrow white"><i/> PAGE NOT FOUND</div><h1>Off the <em>charted route.</em></h1><p>We couldn't find that page.</p><Link className="btn primary" href="/">Return to homepage ↗</Link></div></section>}
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
+import { PageHero } from '@/components/PageHero';
+
+export default function NotFound() {
+  return (
+    <>
+      <PageHero
+        eyebrow="Page not found"
+        title={
+          <>
+            Off the <em>charted route.</em>
+          </>
+        }
+        sub="We couldn't find that page. Let's get you back on course."
+        wavesFill="#fcfbf8"
+      >
+        <div style={{ marginTop: 36 }}>
+          <Link className="btn btn-primary" href="/">
+            Return to homepage <ArrowUpRight size={18} aria-hidden="true" />
+          </Link>
+        </div>
+      </PageHero>
+      <div style={{ height: 120 }} />
+    </>
+  );
+}

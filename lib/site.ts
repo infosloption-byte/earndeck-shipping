@@ -1,13 +1,201 @@
-export const site={name:'Earndeck Shipping',legal:'Earndeck Shipping Pvt Ltd',url:'https://www.earndeckshipping.com',email:'ops@earndeckshipping.com',phone:'+94 77 308 1208',address:'No. 5/5 Nagahawatha Road, Wathtegedara, Maharagama 10280, Sri Lanka'};
-export const ports=['Colombo','Galle','Trincomalee','Hambantota'];
-export const services=[
-{slug:'draft-survey',name:'Draft Surveys',category:'Cargo & Quantity',description:'Bulk cargo quantity verification through vessel displacement measurements.',details:'Draft surveys estimate bulk cargo loaded or discharged by comparing vessel displacement before and after cargo operations.',points:['Arrival and departure draft readings','Quantity and displacement calculations','Supporting survey documentation']},
-{slug:'bunker-quantity-survey',name:'Bunker Quantity Surveys',category:'Fuel & Operations',description:'Independent marine fuel quantity verification and documentation.',details:'Bunker quantity surveys document fuel measurements and help parties verify the quantities delivered or remaining on board.',points:['Tank sounding and measurement','Quantity reconciliation','Transfer documentation']},
-{slug:'cargo-survey',name:'Cargo Surveys & Inspections',category:'Cargo & Condition',description:'Careful cargo condition, handling, stowage and damage inspections.',details:'Independent cargo condition observations assist owners, shippers, receivers and insurers in understanding cargo handling, stowage or damage.',points:['Cargo condition inspection','Stowage observations','Photographic records']},
-{slug:'container-survey',name:'Container Surveys',category:'Container & Cargo',description:'Container condition and shipment inspections with documented findings.',details:'Container inspections help document the condition of transport equipment and cargo when damage, handling concerns or shipment discrepancies occur.',points:['Physical condition checks','Damage assessments','Inspection records']},
-{slug:'cargo-certification',name:'Cargo Certification',category:'Documentation',description:'Inspection-based cargo verification and associated documentation.',details:'Supporting cargo verification and documentation based on the applicable commodity, vessel, port and inspection requirements.',points:['Cargo verification','Supporting documentation','Scope-specific reporting']},
-{slug:'on-off-hire-survey',name:'On-Hire / Off-Hire Surveys',category:'Vessel Condition',description:'Vessel handover condition and bunker documentation.',details:'At charter handover, condition and bunker surveys document relevant observations and remaining-on-board quantities.',points:['Condition observations','Bunker inventory','Handover records']},
-{slug:'ism-audit',name:'Internal ISM Audits',category:'Maritime Compliance',description:'Reviews of marine safety management systems and implementation.',details:'Internal ISM audits assess safety management documentation, procedures and practical implementation against applicable requirements.',points:['Safety management review','Document examination','Findings and follow-up']},
-{slug:'mlc-inspection',name:'MLC Inspections',category:'Maritime Compliance',description:'Reviews relating to seafarer living and working conditions.',details:'MLC inspections focus on relevant seafarer welfare, working conditions, accommodation and supporting records.',points:['Crew welfare observations','Accommodation review','Relevant documentation']},
-{slug:'harmonized-audit',name:'Harmonized Marine Audits',category:'Maritime Compliance',description:'Coordinated marine audit reviews when scope and authorization allow.',details:'Coordinated audits may combine relevant ISM, ISPS and MLC review activities based on the vessel and agreed audit scope.',points:['Combined audit planning','Coordinated site review','Consolidated observations']}
+export const site = {
+  name: 'Earndeck Shipping',
+  legal: 'Earndeck Shipping Pvt Ltd',
+  url: 'https://www.earndeckshipping.com',
+  email: 'ops@earndeckshipping.com',
+  phone: '+94 77 308 1208',
+  address: 'No. 5/5 Nagahawatha Road, Wathtegedara, Maharagama 10280, Sri Lanka',
+};
+
+export const ports = ['Colombo', 'Galle', 'Trincomalee', 'Hambantota'];
+
+export type ServiceGroup = 'Cargo & Quantity' | 'Vessel & Fuel' | 'Compliance & Audit';
+export type IconName =
+  | 'scale'
+  | 'fuel'
+  | 'package'
+  | 'container'
+  | 'filecheck'
+  | 'ship'
+  | 'shield'
+  | 'lifebuoy'
+  | 'layers';
+
+export const serviceGroups: { name: ServiceGroup; blurb: string }[] = [
+  { name: 'Cargo & Quantity', blurb: 'Quantity, condition and certification of cargo.' },
+  { name: 'Vessel & Fuel', blurb: 'Bunkers and vessel handover records.' },
+  { name: 'Compliance & Audit', blurb: 'Safety, labour and management-system reviews.' },
+];
+
+export const services = [
+  {
+    slug: 'draft-survey',
+    name: 'Draft Surveys',
+    category: 'Cargo & Quantity',
+    group: 'Cargo & Quantity',
+    icon: 'scale',
+    description: 'Bulk cargo quantity verification through vessel displacement measurements.',
+    details:
+      'Draft surveys estimate bulk cargo loaded or discharged by comparing vessel displacement before and after cargo operations.',
+    points: [
+      'Arrival and departure draft readings',
+      'Quantity and displacement calculations',
+      'Supporting survey documentation',
+    ],
+  },
+  {
+    slug: 'bunker-quantity-survey',
+    name: 'Bunker Quantity Surveys',
+    category: 'Fuel & Operations',
+    group: 'Vessel & Fuel',
+    icon: 'fuel',
+    description: 'Independent marine fuel quantity verification and documentation.',
+    details:
+      'Bunker quantity surveys document fuel measurements and help parties verify the quantities delivered or remaining on board.',
+    points: ['Tank sounding and measurement', 'Quantity reconciliation', 'Transfer documentation'],
+  },
+  {
+    slug: 'cargo-survey',
+    name: 'Cargo Surveys & Inspections',
+    category: 'Cargo & Condition',
+    group: 'Cargo & Quantity',
+    icon: 'package',
+    description: 'Careful cargo condition, handling, stowage and damage inspections.',
+    details:
+      'Independent cargo condition observations assist owners, shippers, receivers and insurers in understanding cargo handling, stowage or damage.',
+    points: ['Cargo condition inspection', 'Stowage observations', 'Photographic records'],
+  },
+  {
+    slug: 'container-survey',
+    name: 'Container Surveys',
+    category: 'Container & Cargo',
+    group: 'Cargo & Quantity',
+    icon: 'container',
+    description: 'Container condition and shipment inspections with documented findings.',
+    details:
+      'Container inspections help document the condition of transport equipment and cargo when damage, handling concerns or shipment discrepancies occur.',
+    points: ['Physical condition checks', 'Damage assessments', 'Inspection records'],
+  },
+  {
+    slug: 'cargo-certification',
+    name: 'Cargo Certification',
+    category: 'Documentation',
+    group: 'Cargo & Quantity',
+    icon: 'filecheck',
+    description: 'Inspection-based cargo verification and associated documentation.',
+    details:
+      'Supporting cargo verification and documentation based on the applicable commodity, vessel, port and inspection requirements.',
+    points: ['Cargo verification', 'Supporting documentation', 'Scope-specific reporting'],
+  },
+  {
+    slug: 'on-off-hire-survey',
+    name: 'On-Hire / Off-Hire Surveys',
+    category: 'Vessel Condition',
+    group: 'Vessel & Fuel',
+    icon: 'ship',
+    description: 'Vessel handover condition and bunker documentation.',
+    details:
+      'At charter handover, condition and bunker surveys document relevant observations and remaining-on-board quantities.',
+    points: ['Condition observations', 'Bunker inventory', 'Handover records'],
+  },
+  {
+    slug: 'ism-audit',
+    name: 'Internal ISM Audits',
+    category: 'Maritime Compliance',
+    group: 'Compliance & Audit',
+    icon: 'shield',
+    description: 'Reviews of marine safety management systems and implementation.',
+    details:
+      'Internal ISM audits assess safety management documentation, procedures and practical implementation against applicable requirements.',
+    points: ['Safety management review', 'Document examination', 'Findings and follow-up'],
+  },
+  {
+    slug: 'mlc-inspection',
+    name: 'MLC Inspections',
+    category: 'Maritime Compliance',
+    group: 'Compliance & Audit',
+    icon: 'lifebuoy',
+    description: 'Reviews relating to seafarer living and working conditions.',
+    details:
+      'MLC inspections focus on relevant seafarer welfare, working conditions, accommodation and supporting records.',
+    points: ['Crew welfare observations', 'Accommodation review', 'Relevant documentation'],
+  },
+  {
+    slug: 'harmonized-audit',
+    name: 'Harmonized Marine Audits',
+    category: 'Maritime Compliance',
+    group: 'Compliance & Audit',
+    icon: 'layers',
+    description: 'Coordinated marine audit reviews when scope and authorization allow.',
+    details:
+      'Coordinated audits may combine relevant ISM, ISPS and MLC review activities based on the vessel and agreed audit scope.',
+    points: ['Combined audit planning', 'Coordinated site review', 'Consolidated observations'],
+  },
 ] as const;
+
+export type Service = (typeof services)[number];
+
+/** "Find your survey" selector: situations mapped to the services that fit them. */
+export const scenarios: { id: string; label: string; hint: string; slugs: Service['slug'][] }[] = [
+  {
+    id: 'bulk',
+    label: 'Bulk cargo is being loaded or discharged',
+    hint: 'You need an independent quantity figure for the cargo operation.',
+    slugs: ['draft-survey', 'cargo-survey'],
+  },
+  {
+    id: 'bunkers',
+    label: 'Fuel is being delivered to a vessel',
+    hint: 'You want the bunker quantity measured and documented.',
+    slugs: ['bunker-quantity-survey'],
+  },
+  {
+    id: 'charter',
+    label: 'A vessel is changing charterers',
+    hint: 'You need a time-specific record of condition and bunkers at handover.',
+    slugs: ['on-off-hire-survey', 'bunker-quantity-survey'],
+  },
+  {
+    id: 'damage',
+    label: 'Cargo or a container arrived damaged',
+    hint: 'You need independent observations and evidence of condition.',
+    slugs: ['cargo-survey', 'container-survey'],
+  },
+  {
+    id: 'paperwork',
+    label: 'A shipment needs verification paperwork',
+    hint: 'You need inspection-based cargo verification and supporting records.',
+    slugs: ['cargo-certification', 'container-survey'],
+  },
+  {
+    id: 'compliance',
+    label: 'We need a safety or compliance review',
+    hint: 'You want your safety, labour or management systems reviewed.',
+    slugs: ['ism-audit', 'mlc-inspection', 'harmonized-audit'],
+  },
+];
+
+export const process = [
+  {
+    title: 'Enquire',
+    text: 'Send us the vessel, port, preferred date and the scope you need surveyed.',
+  },
+  {
+    title: 'Confirm scope',
+    text: 'We confirm attendance, deliverables and any authorisation needed for the assignment.',
+  },
+  {
+    title: 'Attend & survey',
+    text: 'Our surveyor attends, takes readings and records condition and evidence against the agreed scope.',
+  },
+  {
+    title: 'Report',
+    text: 'You receive a structured, observation-based report with the supporting records.',
+  },
+];
+
+export const frameworks = [
+  { code: 'ISM', name: 'International Safety Management Code' },
+  { code: 'ISPS', name: 'International Ship and Port Facility Security Code' },
+  { code: 'MLC', name: 'Maritime Labour Convention' },
+];
