@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState, type FocusEvent } from 'react';
 import { ArrowUpRight, ChevronDown, Menu, X } from 'lucide-react';
 import { Brand } from './Brand';
+import { NavigationProgress } from './NavigationProgress';
 import { serviceGroups, services } from '@/lib/site';
 
 export function Header() {
@@ -62,6 +63,7 @@ export function Header() {
 
   return (
     <>
+      <NavigationProgress />
       <header className={solid || mobile ? 'site-header is-solid' : 'site-header'}>
         <div className="shell nav">
           <Brand />
@@ -98,6 +100,7 @@ export function Header() {
                 </div>
               </div>
             </div>
+            <Link className={is('/team') ? 'nav-link active' : 'nav-link'} href="/about#team">Team</Link>
             <Link className={is('/about') ? 'nav-link active' : 'nav-link'} href="/about">
               About
             </Link>
@@ -131,7 +134,7 @@ export function Header() {
             </Link>
           ))}
         </div>
-        <Link href="/about">About</Link>
+        <Link href="/about">About</Link><Link href="/about#team">Our team</Link>
         <Link href="/about#ports">Port coverage</Link>
         <Link className="btn btn-primary" href="/contact">
           Request a survey <ArrowUpRight size={18} aria-hidden="true" />
