@@ -15,3 +15,5 @@ The people shown on About were sourced from public directories, not an accessibl
 
 ## Navigation
 Next.js suspense loading state and a path-change overlay are enabled. Overlay clears on successful pathname changes or after a 12-second fail-safe. It does not delay an already-loaded route for decorative timing.
+
+Legacy site `/aboutus/` also identifies G. Thusith Fonseka as Managing Director / Deputy Principal Marine Surveyor. Updated team entry pending final confirmation and an approved photograph.

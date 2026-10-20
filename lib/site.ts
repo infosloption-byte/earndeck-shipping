@@ -151,6 +151,26 @@ export const services = [
     details: 'Pre-purchase surveys and ship vetting assess agreed technical, operational and compliance aspects before an acquisition or charter decision.',
     points: ['Condition and machinery review','Operational records and documentation','Observations for purchase due diligence'],
   },
+  {
+    slug: 'compass-adjustment',
+    name: 'Compass Adjustment & Magnetic Correction',
+    category: 'Navigation & Safety',
+    group: 'Vessel & Fuel',
+    icon: 'ship',
+    description: 'Magnetic compass adjustment, deviation assessment and navigation-related reporting.',
+    details: 'Compass adjustment supports the reliability of a vessel’s magnetic heading reference through agreed inspection and correction work.',
+    points: ['Compass and deviation assessment','Adjustment and magnetic correction','Applicable observation and reporting records'],
+  },
+  {
+    slug: 'pi-condition-survey',
+    name: 'P&I Condition Surveys',
+    category: 'Vessel Risk & Condition',
+    group: 'Vessel & Fuel',
+    icon: 'shield',
+    description: 'Independent vessel condition inspections for marine risk and protection-and-indemnity considerations.',
+    details: 'P&I condition surveys document observable vessel conditions and risks according to the agreed scope for owners, managers and marine insurers.',
+    points: ['Accessible vessel condition inspection','Relevant equipment and risk observations','Evidence-based condition reporting'],
+  },
 ] as const;
 
 export type Service = (typeof services)[number];
@@ -196,6 +216,7 @@ export const scenarios: { id: string; label: string; hint: string; slugs: Servic
 ];
 
 export const team = [
+  { name: 'G. Thusith Fonseka', role: 'Managing Director / Deputy Principal Marine Surveyor', description: 'Marine surveying leadership and operations coordination, as listed on the legacy company website.' },
   { name: 'Ajith Fernando', role: 'Director of Operations', description: 'Operations leadership and marine industry coordination.' },
   { name: 'Hasitha Sandaruwan', role: 'Head of Operations', description: 'Operational planning and survey coordination.' },
   { name: 'Prasanga Mallawaarachchi', role: 'Marine Surveyor', description: 'Marine surveying and vessel-related inspections.' },

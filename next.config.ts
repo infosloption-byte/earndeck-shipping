@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {reactStrictMode:true,poweredByHeader:false,async
 {source:'/services/certification',destination:'/services/cargo-certification',permanent:true},
 {source:'/services/harmonized',destination:'/services/harmonized-audit',permanent:true},
 {source:'/services/hull',destination:'/services/hull-machinery-inspection',permanent:true},
-{source:'/services/prepurchase',destination:'/services/pre-purchase-vetting',permanent:true}
+{source:'/services/prepurchase',destination:'/services/pre-purchase-vetting',permanent:true},
+{source:'/services/compass',destination:'/services/compass-adjustment',permanent:true}
 ];}};
 export default nextConfig;
