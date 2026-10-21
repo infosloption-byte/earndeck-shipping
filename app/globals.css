@@ -2481,3 +2481,25 @@ html.is-loading {
   .svc-card p{font-size:15px;line-height:1.7}
   .svc-grid .svc-cta-card{min-height:220px}
 }
+
+
+/* Responsive certificate gallery — real-document image previews. */
+.credential-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:36px}
+.credential-document{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;min-width:0;box-shadow:var(--shadow-sm)}
+.credential-preview{position:relative;width:100%;height:255px;background:#eaf0f1;border:0;display:block;overflow:hidden;cursor:zoom-in}
+.credential-preview img{object-fit:contain;padding:14px;transition:transform .3s ease}
+.credential-preview:hover img{transform:scale(1.04)}
+.credential-zoom{position:absolute;right:14px;bottom:14px;display:flex;align-items:center;gap:8px;background:var(--navy-900);color:#fff;border-radius:999px;padding:9px 13px;font:600 12px var(--font-body),sans-serif}
+.credential-document-info{padding:24px}
+.credential-type{display:flex;align-items:center;gap:8px;color:var(--amber-deep);font:600 10px var(--font-mono),monospace;letter-spacing:.05em}
+.credential-document-info h3{font-size:clamp(21px,2vw,26px);line-height:1.25;margin:13px 0}
+.credential-holder{font-weight:700;margin-bottom:14px}
+.credential-document-info time{font-size:13px;color:var(--muted)}
+.credential-lightbox{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;padding:24px}
+.credential-backdrop{position:absolute;inset:0;border:0;background:rgba(3,15,25,.94)}
+.credential-lightbox-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;max-width:min(1200px,95vw);max-height:94vh;color:#fff}
+.credential-lightbox-content p{margin:14px 0 0;text-align:center}
+.credential-close{position:absolute;right:0;top:-38px;background:var(--amber);color:var(--navy-900);border:0;border-radius:50%;width:36px;height:36px;display:grid;place-items:center}
+@media(max-width:1080px){.credential-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.credential-gallery{grid-template-columns:minmax(0,1fr)}.credential-preview{height:270px}.credential-document-info{padding:20px}}
+@media(prefers-reduced-motion:reduce){.credential-preview img{transition:none}}
