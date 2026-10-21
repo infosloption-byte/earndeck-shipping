@@ -17,7 +17,7 @@ const matches = (html, pattern) => [...html.matchAll(pattern)].map(match => matc
 function decoded(text) { return text.replace(/&amp;/g, '&').replace(/&#39;|&apos;/g,"'").replace(/&quot;/g,'"'); }
 function attr(tag, key) {
   const match = tag.match(new RegExp(key + '="([^"]*)"', 'i'));
-  return match?.[1] || null;
+  return match?.[1] ?? null;
 }
 let sitemap;
 try {
