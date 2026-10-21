@@ -4,7 +4,6 @@ import { Fraunces, IBM_Plex_Mono, Manrope } from 'next/font/google';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { NavigationProgress } from '@/components/NavigationProgress';
-import { RevealObserver } from '@/components/RevealObserver';
 import { site } from '@/lib/site';
 import './globals.css';
 
@@ -71,7 +70,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Header />
         <main id="main">{children}</main>
         <Footer />
-        <RevealObserver />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}

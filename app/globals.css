@@ -231,18 +231,24 @@ svg {
   color: var(--amber-hot);
 }
 
-/* ---------- Scroll reveal (progressive: content visible without JS) ---------- */
+/* Scroll reveal without DOM mutations before React hydration.
+   Content is fully visible in browsers without scroll-driven animation support. */
+.reveal { opacity: 1; transform: none; }
 
-@media (scripting: enabled) {
-  .reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
-    transition-delay: var(--d, 0ms);
-  }
-  .reveal.in {
-    opacity: 1;
-    transform: none;
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation-name: reveal-on-scroll;
+      animation-duration: 1s;
+      animation-fill-mode: both;
+      animation-timing-function: ease-out;
+      animation-timeline: view();
+      animation-range: entry 0% entry 95%;
+    }
+    @keyframes reveal-on-scroll {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   }
 }
 
