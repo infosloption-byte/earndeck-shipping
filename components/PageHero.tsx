@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { HeroRing } from './HeroRing';
 import { Waves } from './Waves';
+import { MaritimeHeroArt } from './MaritimeHeroArt';
 
 type Crumb = { label: string; href?: string };
 
@@ -21,11 +22,10 @@ export function PageHero({ eyebrow, title, sub, crumbs, wavesFill = '#fcfbf8', a
   return (
     <section className="page-hero on-dark">
       <HeroRing />
-      {art && (
-        <div className="page-art" aria-hidden="true">
-          {art}
-        </div>
-      )}
+      <div className="page-art page-art-animated" aria-hidden="true">
+        <MaritimeHeroArt topic={eyebrow} />
+        {art && <div className="page-art-center">{art}</div>}
+      </div>
       <div className="shell">
         {crumbs && (
           <nav className="breadcrumbs" aria-label="Breadcrumb">
