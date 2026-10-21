@@ -78,7 +78,7 @@ for (const entry of sitemapUrls) {
     } catch {}
   }
   for (const tag of html.match(/<img\b[^>]*>/gi) || [])
-    if (attr(tag, 'alt') === null) warn(route + ' image missing alt attribute');
+    if (attr(tag, 'alt') === null) warn(route + ' image missing alt attribute: ' + (attr(tag, 'src') || '(no src)').slice(0, 180));
   pass(route + ' metadata / canonical / H1');
 }
 for (const path of internalTargets) {
