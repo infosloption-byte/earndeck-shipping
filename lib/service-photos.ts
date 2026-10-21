@@ -11,4 +11,5 @@ export const servicePhotos: Record<string, { src: string; alt: string; credit: s
  'hull-machinery-inspection': {src:'/images/services/hull-machinery-inspection.webp',alt:'Welder working on ship hull structures during dry-dock maintenance',credit:'Navy Medicine / Unsplash'},
  'pre-purchase-vetting': {src:'/images/services/pre-purchase-vetting.webp',alt:'Bulk carrier at sea, representative of the vessels assessed during pre-purchase surveys',credit:'Martti Salmi / Unsplash'},
  'compass-adjustment': {src:'/images/services/compass-adjustment.webp',alt:'Close-up photograph of a marine compass mounted on a boat',credit:'Marc Wieland / Unsplash'},
+ 'pi-condition-survey': {src:'/images/services/pi-condition-survey.webp',alt:'Commercial vessel photographed for visual condition assessment during a P&I entry or condition survey',credit:'Martti Salmi / Unsplash'},
 };

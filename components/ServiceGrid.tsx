@@ -65,7 +65,7 @@ export function ServiceGrid({ items, featured = false, finderCard = false, filte
             href={'/services/' + s.slug}
             className={all || s.group === active ? (featured ? 'svc-card svc-photo-card' : 'svc-card') : 'svc-card hidden'}
           >
-            {featured && <div className="svc-photo" aria-hidden="true"><Image src={servicePhotos[s.slug]?.src ?? '/images/services/draft-survey.webp'} alt="" fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" quality={75} loading="lazy" /></div>}
+            {featured && <div className="svc-photo" aria-hidden="true"><Image src={servicePhotos[s.slug].src} alt="" fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" quality={75} loading="lazy" /></div>}
             <div className="svc-top">
               <span className="svc-icon">
                 <ServiceIcon name={s.icon} />

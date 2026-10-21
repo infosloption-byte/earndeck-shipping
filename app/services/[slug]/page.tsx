@@ -112,7 +112,7 @@ export default async function ServicePage({ params }: Props) {
       <section className="section" style={{ paddingTop: 90 }}>
         <div className="shell detail-layout">
           <article className="detail-main">
-            {photo && <figure className="service-detail-photo reveal"><div className="service-detail-photo-frame"><Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 1000px) 100vw, 760px" quality={75} /></div><figcaption>Illustrative maritime photography · {photo.credit}. Not an Earndeck assignment photograph.</figcaption></figure>}
+            <figure className="service-detail-photo reveal"><div className="service-detail-photo-frame"><Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 1000px) 100vw, 760px" quality={75} /></div><figcaption>Illustrative maritime photography · {photo.credit}. Not an Earndeck assignment photograph.</figcaption></figure>
             <section id="overview" className="reveal">
               <div className="eyebrow">Overview</div>
               <h2>
