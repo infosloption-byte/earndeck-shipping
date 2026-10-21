@@ -1,68 +1,16 @@
-import fs from 'node:fs';
-import path from 'node:path';
-
-/**
- * Team directory shown on the About page.
- *
- * PORTRAITS: drop a photo into `public/team/` named after the member's `slug`
- * (e.g. `public/team/thusith-fonseka.jpg`; .jpg, .jpeg, .png or .webp). It is picked up automatically at
- * build time — no code change needed. Until a photo exists a branded monogram card is shown.
- *
- * CONTENT: names, roles and descriptions below must match the company's own roster. Edit them freely.
- */
-export type TeamMember = {
-  slug: string;
-  name: string;
-  role: string;
-  description: string;
-};
-
-export const team: TeamMember[] = [
-  {
-    slug: 'thusith-fonseka',
-    name: 'G. Thusith Fonseka',
-    role: 'Managing Director / Deputy Principal Marine Surveyor',
-    description: 'Marine surveying leadership and operations coordination.',
-  },
-  {
-    slug: 'ajith-fernando',
-    name: 'Ajith Fernando',
-    role: 'Director of Operations',
-    description: 'Operations leadership and marine industry coordination.',
-  },
-  {
-    slug: 'hasitha-sandaruwan',
-    name: 'Hasitha Sandaruwan',
-    role: 'Head of Operations',
-    description: 'Operational planning and survey coordination.',
-  },
-  {
-    slug: 'prasanga-mallawaarachchi',
-    name: 'Prasanga Mallawaarachchi',
-    role: 'Marine Surveyor',
-    description: 'Marine surveying and vessel-related inspections.',
-  },
-  {
-    slug: 'clishal-perera',
-    name: 'Clishal Perera',
-    role: 'Marine Surveyor',
-    description: 'Marine inspection and survey assignments.',
-  },
+import fs from 'node:fs';import path from 'node:path';
+export type TeamMember={slug:string;name:string;role:string;credentials:string[]};
+export const team:TeamMember[]=[
+{slug:'thusith-fonseka',name:'G. Thusith Fonseka',role:'Managing Director / Deputy Principal Marine Surveyor',credentials:['Chief Operations Manager Coordinator','Custom House Agent, ICS Ship Broker','Magnetic Compass Adjuster']},
+{slug:'ajith-fernando',name:'Capt. Ajith U Fernando',role:'Director / Principal Mariner Surveyor',credentials:['Chamber of Commerce Panel Surveyor (SL)','Lead Auditor (ISM, ISPS, MLC) — Lloyds Maritime','Hull Damage Claims Surveying, Bunker and Draught','IAMCS Full Member']},
+{slug:'gf-dias',name:'G. F. Dias',role:'Director / Marine Surveyor',credentials:['Marine Engineer']},
+{slug:'hasitha-sandaruwan',name:'Hasitha Sandaruwan',role:'Operations Manager / Marine Surveyor',credentials:['IFIA Qualified Petroleum Inspector']},
+{slug:'clishal-perera',name:'Clishal L. Perera',role:'Marine Surveyor',credentials:['Ceylon Chamber of Commerce Panel Surveyor']},
+{slug:'vidura-wijewickrama',name:'Vidura Wijewickrama',role:'Assistant Marine Surveyor',credentials:[]},
+{slug:'thuhina-gimhan',name:'Thuhina Gimhan',role:'Assistant Marine Surveyor',credentials:[]},
+{slug:'shashika-rajapaksha',name:'Shashika Rajapaksha',role:'Assistant Marine Surveyor',credentials:[]},
+{slug:'vathila-thevinu',name:'Vathila Thevinu',role:'Assistant Marine Surveyor',credentials:[]},
+{slug:'komuthu-fernando',name:'Komuthu Fernando',role:'IT Specialist',credentials:['BSc (Hons) Information Technology — University of Moratuwa']}
 ];
-
-const EXTENSIONS = ['jpg', 'jpeg', 'png', 'webp'];
-
-/** Public URL of a member's portrait if a file for them exists in public/team, otherwise undefined. */
-export function portraitFor(slug: string): string | undefined {
-  for (const ext of EXTENSIONS) {
-    if (fs.existsSync(path.join(process.cwd(), 'public', 'team', `${slug}.${ext}`))) return `/team/${slug}.${ext}`;
-  }
-  return undefined;
-}
-
-/** Initials for the monogram: first and last name, ignoring "G."-style initials. */
-export function initialsOf(name: string): string {
-  const parts = name.split(/\s+/).filter((p) => !/^[A-Z]\.$/.test(p));
-  const use = parts.length > 1 ? [parts[0], parts[parts.length - 1]] : parts;
-  return use.map((p) => p[0]).join('').toUpperCase();
-}
+export function portraitFor(slug:string){const p=path.join(process.cwd(),'public','team',slug+'.webp');return fs.existsSync(p)?'/team/'+slug+'.webp':undefined}
+export function initialsOf(name:string){return name.split(/\s+/).filter(p=>!/^[A-Z]\.$/.test(p)).map(p=>p[0]).slice(-2).join('').toUpperCase()}

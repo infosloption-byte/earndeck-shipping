@@ -129,6 +129,8 @@ export function Header() {
             <Link className={is('/about') ? 'nav-link active' : 'nav-link'} href="/about">
               About
             </Link>
+            <Link className="nav-link" href="/careers">Careers</Link>
+            <Link className="nav-link" href="/certifications">Certifications</Link>
             <Link className="nav-link" href="/about#ports">
               Port coverage
             </Link>
@@ -161,6 +163,7 @@ export function Header() {
         </div>
         <Link href="/about">About</Link>
         <Link href="/about#team">Our team</Link>
+        <Link href="/careers">Careers</Link><Link href="/certifications">Certifications</Link>
         <Link href="/about#ports">Port coverage</Link>
         <Link className="btn btn-primary" href="/contact">
           Request a survey <ArrowUpRight size={18} aria-hidden="true" />

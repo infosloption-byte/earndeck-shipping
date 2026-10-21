@@ -1,8 +1,11 @@
 import Link from 'next/link';
+import fs from 'node:fs';
+import path from 'node:path';
 import { Brand } from './Brand';
 import { ports, services, site } from '@/lib/site';
 
 export function Footer() {
+  const hasLicense=fs.existsSync(path.join(process.cwd(),'public','brand','license.webp'));
   return (
     <footer className="footer">
       <div className="footer-word" aria-hidden="true">
@@ -15,6 +18,7 @@ export function Footer() {
             <p style={{ maxWidth: 340 }}>
               Independent marine surveying, inspection and maritime consultancy across Sri Lanka&rsquo;s major ports.
             </p>
+            {hasLicense&&<div className="footer-license"><img src="/brand/license.webp" alt="Earndeck Shipping licence and association emblems" loading="lazy" width="780" height="180"/></div>}
           </div>
           <div>
             <h3>Explore</h3>
@@ -22,6 +26,8 @@ export function Footer() {
             <Link href="/services">All services</Link>
             <Link href="/about#ports">Port coverage</Link>
             <Link href="/contact">Request a survey</Link>
+            <Link href="/careers">Marine careers</Link>
+            <Link href="/certifications">Certifications</Link>
             <Link href="/privacy">Privacy notice</Link>
           </div>
           <div>
