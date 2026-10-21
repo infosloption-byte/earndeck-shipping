@@ -42,6 +42,9 @@ Status legend: [x] committed to GitHub, [ ] pending; "validate" means not yet te
 - [ ] Confirm port attendance eligibility, service scope, addresses and any permissions with client.
 
 ## Phase 4 — Performance, testing and measurement (IN PROGRESS)
+- [x] Record baseline from six supplied mobile Lighthouse reports in docs/LIGHTHOUSE_MOBILE_BASELINE.md.
+- [x] Apply first accessibility refinements for bright heading text and interactive control accessible names (Lighthouse recheck pending).
+- [ ] Resolve Lighthouse LCP, TBT and image-delivery opportunities based on measured elements; do not modify animation/theme speculatively.
 - [x] Extend smoke tests to check all four port pages, canonical markup, sitemap inclusion and shared navigation links (user verified all passed on localhost:5177).
 - [x] Add scripts/audit-site.mjs to crawl sitemap pages for metadata, canonical, H1 and links; user verified 26 sitemap URLs, 26 destinations, 0 errors and 0 warnings against local production preview.
 - [x] Correct audit parser to accept intentional decorative `alt=""`; user reran successfully: 26 sitemap URLs, 26 internal destinations, 0 errors, 0 warnings.
@@ -72,6 +75,7 @@ npm run dev
 Then inspect the HTML and Google tools in the deployment environment. Do **not** run dev and build concurrently with a shared output directory.
 
 ## Change log
+- 2026-10-21: Analyzed six mobile Lighthouse JSON reports (performance 73–87, accessibility 94–96). Recorded measurements and initial targeted accessibility adjustments; verification pending.
 - 2026-10-21: User verified production preview: typecheck and build passed (35/35), sitemap audit passed (26 pages, 0 errors/warnings), asset check passed (10 pages, 57 distinct local assets). Field Core Web Vitals and manual responsive/accessibility checks still pending.
 - 2026-10-21: User confirmed 35/35 build and clean audit of 26 sitemap pages (0 errors, 0 warnings). Added asset-loading smoke test and browser QA procedure; field performance and visual QA still pending.
 - 2026-10-21: User confirmed 35/35 build and all SEO smoke checks. Site audit: 26 sitemap URLs, 0 errors, 105 false-positive image-alt warnings. Corrected empty-alt handling; rerun pending.
