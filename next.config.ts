@@ -1,5 +1,5 @@
 import type { NextConfig } from 'next';
-const nextConfig: NextConfig = {reactStrictMode:true,poweredByHeader:false,async redirects(){return [
+const nextConfig: NextConfig = {reactStrictMode:true,poweredByHeader:false,distDir:process.env.NODE_ENV==='development'?'.next-dev':'.next',async redirects(){return [
 {source:'/services/draft',destination:'/services/draft-survey',permanent:true},
 {source:'/services/bunker',destination:'/services/bunker-quantity-survey',permanent:true},
 {source:'/services/cargo',destination:'/services/cargo-survey',permanent:true},
