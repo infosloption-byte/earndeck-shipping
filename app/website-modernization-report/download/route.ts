@@ -3,7 +3,7 @@ import {growthReport as r} from '@/lib/seo-growth-report';
 export const runtime = 'nodejs';
 const chapters: {title:string; paragraphs:string[]}[] = [
  {title:'Executive strategy and purpose',paragraphs:[
- 'EARNDECK SHIPPING | ORGANIC SEARCH GROWTH AND BRAND VISIBILITY STRATEGY | '+r.date,
+ 'EARNDECK SHIPPING | SEARCH, AI DISCOVERY AND BRAND VISIBILITY STRATEGY | '+r.date,
  r.mission,r.statement,
  'Previously: https://www.earndeckshipping.com/ | New staging: https://earndeck.ycusriya.online/',
  ...r.outcomes.map(([a,b])=>a+': '+b)]},
@@ -12,6 +12,8 @@ const chapters: {title:string; paragraphs:string[]}[] = [
  ...r.positions.map(([a,b,c])=>a+' | '+b+' | '+c),
  'The keyword shortlist is proposed, not measured current rankings. Validate with Google Search Console, competitors and conversion evidence.'
  ]},
+ {title:'Search platforms and distribution channels',paragraphs:[...r.channels.map(([name,method,measurement])=>name+': '+method+' | Success: '+measurement)]},
+ {title:'AI search and answer-engine approach',paragraphs:[...r.aiPrinciples.map(([name,detail])=>name+': '+detail),'There is no guaranteed placement in AI answers, chat products or generated citations.']},
  {title:'Previous-site risks and shortcomings',paragraphs:[
  ...r.issues.map(([a,b])=>a+': '+b),
  'Legacy indexed service pages should be migrated with correct equivalent permanent redirects. A like-for-like speed comparison does not yet exist.'
@@ -23,6 +25,7 @@ const chapters: {title:string; paragraphs:string[]}[] = [
  ...r.phases.map(p=>({title:p.window+' | '+p.title,paragraphs:[
  'Owner: '+p.owner+' | Status: '+p.status,...p.tasks
  ]})),
+ ...r.delivery.map(step=>({title:step.period+' - '+step.deliverable,paragraphs:['Timing: '+step.window+' | Owner: '+step.owner+' | Status: '+step.state,...step.actions,'ACCEPTANCE CRITERIA:',...step.acceptance]})),
  {title:'Performance baseline and optimization',paragraphs:[
  'Local simulated mobile Lighthouse tests (not actual field Core Web Vitals):',
  ...r.baseline.map(([name,score,lcp])=>name+' | Performance '+score+'/100 | LCP '+lcp),
@@ -35,7 +38,7 @@ const chapters: {title:string; paragraphs:string[]}[] = [
  {title:'Client participation and strategic conclusion',paragraphs:[
  ...r.dependencies,
  'The website modernization provides a search-friendly platform. Long-term commercial search visibility also requires expert content, legitimate industry mentions, real reviews, accurate business data, migration accuracy and sustained optimization.',
- 'Ranking at number one cannot be guaranteed. The success measure is stronger qualified visibility and genuine marine survey enquiries.'
+ 'A first-place rank or AI citation cannot be guaranteed. The success measure is credible cross-platform visibility and genuine marine survey enquiries.'
  ]}
 ];
 const escape = (value:string) => value.replace(/[\\()]/g, x => '\\'+x);
@@ -51,4 +54,4 @@ function makePdf(): Uint8Array {
  objects[catalog-1]='<< /Type /Catalog /Pages '+root+' 0 R >>';objects[root-1]='<< /Type /Pages /Kids ['+pageRefs.map(i=>i+' 0 R').join(' ')+'] /Count '+pageRefs.length+' >>';
  const enc=new TextEncoder();let output='%PDF-1.4\n';const offsets=[0];for(let i=0;i<objects.length;i++){offsets.push(enc.encode(output).length);output+=(i+1)+' 0 obj\n'+objects[i]+'\nendobj\n'}const xref=enc.encode(output).length;output+='xref\n0 '+(objects.length+1)+'\n0000000000 65535 f \n'+offsets.slice(1).map(n=>String(n).padStart(10,'0')+' 00000 n \n').join('')+'trailer\n<< /Size '+(objects.length+1)+' /Root '+catalog+' 0 R >>\nstartxref\n'+xref+'\n%%EOF';return enc.encode(output);
 }
-export async function GET(){return new NextResponse(Buffer.from(makePdf()),{status:200,headers:{'Content-Type':'application/pdf','Content-Disposition':'attachment; filename="Earndeck_SEO_Growth_Strategy.pdf"','Cache-Control':'public, max-age=3600'}})}
+export async function GET(){return new NextResponse(Buffer.from(makePdf()),{status:200,headers:{'Content-Type':'application/pdf','Content-Disposition':'attachment; filename="Earndeck_Search_AI_Discovery_Strategy.pdf"','Cache-Control':'public, max-age=3600'}})}
