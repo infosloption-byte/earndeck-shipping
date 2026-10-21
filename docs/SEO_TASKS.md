@@ -37,9 +37,12 @@ Status legend: [x] committed to GitHub, [ ] pending; "validate" means not yet te
 - [x] Add /ports/colombo, /ports/galle, /ports/hambantota and /ports/trincomalee with existing PageHero/components.
 - [x] Add differentiated port descriptions, enquiry planning advice, questions and relevant service links (client review pending).
 - [x] Add port-specific metadata, canonicals, breadcrumb schema and sitemap entries.
+- [x] Link shared PortsExplorer list to dedicated port pages across homepage, About and Ports.
+- [x] Fix Arrange Attendance button spacing and add mobile layout safeguards (browser QA still required).
 - [ ] Confirm port attendance eligibility, service scope, addresses and any permissions with client.
 
-## Phase 4 — Performance, testing and measurement (NOT STARTED)
+## Phase 4 — Performance, testing and measurement (IN PROGRESS)
+- [x] Extend smoke tests to check all four port pages, canonical markup, sitemap inclusion and shared navigation links (local run pending).
 - [ ] Browser QA at 320, 375, 425, 589, 768, 1024 and 1440px.
 - [ ] Lighthouse and CrUX LCP/INP/CLS baseline, optimize real largest contentful images and avoid layout shifts.
 - [ ] Verify no hydration errors or 404 static assets; check image alt text and document preview performance.
@@ -65,6 +68,7 @@ npm run dev
 Then inspect the HTML and Google tools in the deployment environment. Do **not** run dev and build concurrently with a shared output directory.
 
 ## Change log
+- 2026-10-21: Confirmed user build 35/35. Connected shared port section to port pages, adjusted CTA margin/mobile CSS, and expanded SEO smoke tests; local browser QA pending.
 - 2026-10-21: Phase 3 starter: four port landing pages and internal directory links, metadata and sitemap; client operational review pending.
 - 2026-10-21: User confirmed successful build and SEO smoke tests. Expanded editorial preparation/reporting guidance to all 13 service pages; pending qualified surveyor review.
 - 2026-10-21: User verified all local SEO smoke checks pass and production build succeeds (31/31 pages). Phase 2 initial service-content enhancements committed; client verification pending.
