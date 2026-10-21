@@ -2460,3 +2460,24 @@ html.is-loading {
 .mobile-service-links{display:grid;gap:0;padding:0 0 12px 15px}
 .mobile-service-links a{font-size:14px;line-height:1.5;padding:10px 8px;color:rgba(255,255,255,.78)}
 .mobile-service-links a:hover,.mobile-service-links a:focus-visible{color:var(--amber)}
+
+
+/* Responsive grid correction: featured desktop spans must never create implicit columns on mobile. */
+.svc-grid,.editorial-grid,.vacancy-grid,.credentials-layout{min-width:0}
+.svc-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.svc-card,.svc-body,.editorial-tile,.vacancy,.credentials-card{min-width:0;max-width:100%}
+.svc-card h2,.svc-card h3,.svc-card p,.svc-cat,.editorial-tile h3,.vacancy h3{overflow-wrap:break-word}
+@media(max-width:1050px){
+  .svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:640px){
+  .svc-grid,.svc-grid.featured{grid-template-columns:minmax(0,1fr);gap:16px}
+  .svc-grid.featured>.svc-card:first-child:not(.hidden),
+  .svc-grid .svc-cta-card.cta-1,
+  .svc-grid .svc-cta-card{grid-column:1 / -1}
+  .svc-card,.svc-grid.featured>.svc-card:first-child:not(.hidden){width:100%;min-width:0;min-height:260px;padding:24px;gap:24px}
+  .svc-grid.featured>.svc-card:first-child:not(.hidden) h3{font-size:clamp(27px,7vw,34px)}
+  .svc-card h3{font-size:clamp(25px,7vw,32px)}
+  .svc-card p{font-size:15px;line-height:1.7}
+  .svc-grid .svc-cta-card{min-height:220px}
+}
