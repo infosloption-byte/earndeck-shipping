@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 /**
  * Company logo, shipped in two colourways so it is always legible:
@@ -14,7 +15,7 @@ const LOGO_RATIO = 866 / 702; // width / height of logo-*.png (emblem + wordmark
 /** The wheel-and-anchor emblem on its own. */
 export function BrandMark({ height = 52, tone = 'light' }: { height?: number; tone?: Tone }) {
   return (
-    <img
+    <Image
       className="brand-mark"
       src={`/brand/emblem-${tone}.png`}
       alt=""
@@ -28,7 +29,7 @@ export function BrandMark({ height = 52, tone = 'light' }: { height?: number; to
 /** The complete logo lockup (emblem + EARNDECK SHIPPING wordmark) exactly as supplied. */
 export function Logo({ width = 220, tone = 'light', alt = 'Earndeck Shipping' }: { width?: number; tone?: Tone; alt?: string }) {
   return (
-    <img
+    <Image
       className="brand-logo"
       src={`/brand/logo-${tone}.png`}
       alt={alt}
