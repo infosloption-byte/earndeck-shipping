@@ -8,6 +8,7 @@ import { ServiceGrid, type ServiceItem } from '@/components/ServiceGrid';
 import { ServiceIcon } from '@/components/ServiceIcon';
 import { ports, services, site } from '@/lib/site';
 import { content } from '@/lib/service-content';
+import { serviceGuidance } from '@/lib/service-guidance';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -32,6 +33,7 @@ export default async function ServicePage({ params }: Props) {
   const s = services.find((x) => x.slug === slug);
   if (!s) notFound();
   const info = content[slug];
+  const guidance = serviceGuidance[slug];
   if (!info) notFound();
 
   const related: ServiceItem[] = [
@@ -141,6 +143,18 @@ export default async function ServicePage({ params }: Props) {
               </ol>
             </section>
 
+            {guidance && (
+              <section id="preparation" className="reveal">
+                <div className="eyebrow">Planning and reporting</div>
+                <h2>Before the survey &amp; typical deliverables</h2>
+                <h3>What to prepare</h3>
+                <ul>{guidance.preparation.map(item => <li key={item}>{item}</li>)}</ul>
+                <h3>What the report may include</h3>
+                <ul>{guidance.deliverables.map(item => <li key={item}>{item}</li>)}</ul>
+                <p><strong>Important limitations:</strong> {guidance.limitations}</p>
+                <p>Exact attendance, methods and deliverables are agreed with the operations team for each assignment.</p>
+              </section>
+            )}
             <section id="who" className="reveal">
               <div className="eyebrow">Who requests this</div>
               <h2>Who this service is for</h2>
@@ -169,6 +183,14 @@ export default async function ServicePage({ params }: Props) {
                 confirmation. Exact deliverables, credentials, regulatory acceptance, cost and attendance are confirmed
                 for each assignment.
               </p>
+            </section>
+            <section className="reveal">
+              <div className="eyebrow">Explore further</div>
+              <h2>Explore our Sri Lanka marine survey team</h2>
+              <p>Learn about our marine surveying professionals, their documented qualifications, and our port attendance coverage.</p>
+              <p><Link className="link-arrow" href="/team">Meet the survey team <ArrowUpRight size={18} aria-hidden="true" /></Link></p>
+              <p><Link className="link-arrow" href="/ports">Sri Lanka port coverage <ArrowUpRight size={18} aria-hidden="true" /></Link></p>
+              <p><Link className="link-arrow" href="/certifications">Certificates and licences <ArrowUpRight size={18} aria-hidden="true" /></Link></p>
             </section>
           </article>
 
@@ -201,6 +223,7 @@ export default async function ServicePage({ params }: Props) {
               <a href="#overview">Overview</a>
               <a href="#scope">Scope</a>
               <a href="#process">Process</a>
+              {guidance && <a href="#preparation">Preparation &amp; reporting</a>}
               <a href="#who">Who it&rsquo;s for</a>
               <a href="#faq">FAQ</a>
             </nav>

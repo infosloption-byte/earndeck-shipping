@@ -12,15 +12,20 @@ Status legend: [x] committed to GitHub, [ ] pending; "validate" means not yet te
 - [x] Refine sitemap to intended public URLs and avoid fabricated modification dates.
 - [x] Explicit robots policy for crawlable public pages; disallow API paths.
 - [x] Document SEO tracking and launch checks.
-- [x] Document 11 known legacy URLs and proposed equivalents in docs/LEGACY_URL_MAP.md (public discovery only).\n- [ ] Complete **full** live legacy crawl and export indexed URLs from Google Search Console (partial discovery is not exhaustive).
-- [x] Confirm known legacy service mappings already exist in next.config.ts; no speculative wildcard redirects.\n- [ ] Implement remaining redirect mappings discovered from complete audit.
+- [x] Document 11 known legacy URLs and proposed equivalents in docs/LEGACY_URL_MAP.md (public discovery only).
+- [ ] Complete **full** live legacy crawl and export indexed URLs from Google Search Console (partial discovery is not exhaustive).
+- [x] Confirm known legacy service mappings already exist in next.config.ts; no speculative wildcard redirects.
+- [ ] Implement remaining redirect mappings discovered from complete audit.
 - [x] Add scripts/check-seo.mjs for local/server redirect, metadata, sitemap and response tests.
-- [x] Improve redirect test to follow trailing-slash normalization and reject loops; configure Next.js image quality 80.\n- [ ] Run automated checks against production after cutover and validate JSON-LD in Google testing tools.
+- [x] Improve redirect test to follow trailing-slash normalization and reject loops; configure Next.js image quality 80.
+- [ ] Run automated checks against production after cutover and validate JSON-LD in Google testing tools.
 - [ ] Verify business phone, physical address, name, office eligibility and port service areas before launch.
 - [ ] Test mobile/desktop performance and accessibility; check metadata for every indexable page.
 - [ ] Confirm Google Search Console and Bing Webmaster Tools, submit production sitemap after cutover.
 
-## Phase 2 — Service content and AI discovery (NOT STARTED)
+## Phase 2 — Service content and AI discovery (IN PROGRESS)
+- [x] Add source-derived preparation, deliverable examples and clear limitations for five priority service pages (client review required).
+- [x] Add contextual links to /team, /ports and /certifications from service detail pages.
 - [ ] Expand priority service pages with accurate methodology, evidence requirements, limitations, typical deliverables and professionally reviewed FAQs.
 - [ ] Review existing certificate and survey claims with named qualified staff; do not describe expired certificates as current.
 - [ ] Create approved technical guides and case studies with genuine first-party expertise.
@@ -58,5 +63,7 @@ npm run dev
 ```
 Then inspect the HTML and Google tools in the deployment environment. Do **not** run dev and build concurrently with a shared output directory.
 
-## Change log\n- 2026-10-21: Legacy audit pass — mapped known indexed service URLs, added SEO regression script; complete Search Console audit remains outstanding.
+## Change log
+- 2026-10-21: User verified all local SEO smoke checks pass and production build succeeds (31/31 pages). Phase 2 initial service-content enhancements committed; client verification pending.
+- 2026-10-21: Legacy audit pass — mapped known indexed service URLs, added SEO regression script; complete Search Console audit remains outstanding.
 - 2026-10-21: Phase 1 starter commit — homepage canonical/metadata, local-business structured data, service entity references, sitemap and robots adjustments. Existing visual theme untouched.
