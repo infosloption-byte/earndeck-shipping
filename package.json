@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start -p 5177",
     "typecheck": "tsc --noEmit",
-    "seo:audit": "node scripts/audit-site.mjs"
+    "seo:audit": "node scripts/audit-site.mjs",
+    "qa:assets": "node scripts/check-assets.mjs"
   },
   "dependencies": {
     "next": "^15.5.0",

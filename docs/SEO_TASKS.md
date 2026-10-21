@@ -44,10 +44,12 @@ Status legend: [x] committed to GitHub, [ ] pending; "validate" means not yet te
 ## Phase 4 — Performance, testing and measurement (IN PROGRESS)
 - [x] Extend smoke tests to check all four port pages, canonical markup, sitemap inclusion and shared navigation links (user verified all passed on localhost:5177).
 - [x] Add scripts/audit-site.mjs to crawl sitemap pages for titles, descriptions, single canonical, H1, HTML lang, internal links and image alt presence (user ran: 26 URLs, 0 errors; 105 alt warnings were caused by the audit treating `alt=""` as missing).
-- [x] Correct audit parser to accept intentional decorative `alt=""` and report image source for any genuinely missing alt (rerun pending).
+- [x] Correct audit parser to accept intentional decorative `alt=""`; user reran successfully: 26 sitemap URLs, 26 internal destinations, 0 errors, 0 warnings.
 - [ ] Browser QA at 320, 375, 425, 589, 768, 1024 and 1440px.
 - [ ] Lighthouse and CrUX LCP/INP/CLS baseline, optimize real largest contentful images and avoid layout shifts.
-- [ ] Verify no hydration errors or 404 static assets; check image alt text and document preview performance.
+- [x] Add scripts/check-assets.mjs to audit response status for referenced local JS, CSS and image assets (execution pending).
+- [x] Document reproducible viewport/keyboard/Lighthouse acceptance procedure in docs/QA_PHASE4.md (execution pending).
+- [ ] Verify no hydration errors or 404 static assets in real browsers; check image preview performance.
 - [ ] Run accessibility keyboard, screen-reader and reduced-motion checks.
 - [ ] Track qualified organic enquiries with privacy-respecting analytics and consent.
 - [ ] Monitor Search Console queries, indexed pages, positions, CTR and organic conversions monthly.
@@ -70,6 +72,7 @@ npm run dev
 Then inspect the HTML and Google tools in the deployment environment. Do **not** run dev and build concurrently with a shared output directory.
 
 ## Change log
+- 2026-10-21: User confirmed 35/35 build and clean audit of 26 sitemap pages (0 errors, 0 warnings). Added asset-loading smoke test and browser QA procedure; field performance and visual QA still pending.
 - 2026-10-21: User confirmed 35/35 build and all SEO smoke checks. Site audit: 26 sitemap URLs, 0 errors, 105 false-positive image-alt warnings. Corrected empty-alt handling; rerun pending.
 - 2026-10-21: User verified all 35 pages build and all SEO smoke tests pass, including port links. Added site-wide SEO crawl audit; browser QA and Core Web Vitals remain pending.
 - 2026-10-21: Confirmed user build 35/35. Connected shared port section to port pages, adjusted CTA margin/mobile CSS, and expanded SEO smoke tests; local browser QA pending.
