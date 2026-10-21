@@ -56,7 +56,8 @@ export default async function ServicePage({ params }: Props) {
         name: s.name,
         description: s.description,
         serviceType: s.name,
-        provider: { '@type': 'Organization', name: site.legal },
+        url: site.url + '/services/' + s.slug,
+        provider: { '@id': site.url + '/#business' },
         areaServed: { '@type': 'Country', name: 'Sri Lanka' },
       },
       {

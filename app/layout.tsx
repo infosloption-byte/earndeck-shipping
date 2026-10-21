@@ -33,7 +33,8 @@ export const metadata: Metadata = {
   },
   description:
     'Marine surveying, cargo and container inspections, bunker and draft surveys, and maritime audits across Sri Lanka.',
-  openGraph: { siteName: site.name, type: 'website', locale: 'en_LK' },
+  openGraph: { siteName: site.name, type: 'website', locale: 'en_LK', url: site.url, title: 'Marine Surveyors in Sri Lanka | Earndeck Shipping', description: 'Independent marine surveying, draft and bunker surveys, vessel inspections and maritime audits across Sri Lanka.' },
+  twitter: { card: 'summary', title: 'Marine Surveyors in Sri Lanka | Earndeck Shipping' },
   robots: { index: true, follow: true },
 };
 
@@ -46,9 +47,18 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   const schema = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': ['LocalBusiness', 'ProfessionalService'],
+    '@id': site.url + '/#business',
     name: site.legal,
     url: site.url,
+    description: 'Independent marine surveying, vessel inspections, cargo and bunker quantity surveys and maritime consultancy in Sri Lanka.',
+    areaServed: [
+      { '@type': 'Place', name: 'Colombo, Sri Lanka' },
+      { '@type': 'Place', name: 'Galle, Sri Lanka' },
+      { '@type': 'Place', name: 'Trincomalee, Sri Lanka' },
+      { '@type': 'Place', name: 'Hambantota, Sri Lanka' },
+    ],
+    knowsAbout: ['Marine surveying', 'Draft surveys', 'Bunker quantity surveys', 'Cargo inspections', 'Vessel condition surveys', 'Maritime audits'],
     email: site.email,
     telephone: site.phone,
     address: {
