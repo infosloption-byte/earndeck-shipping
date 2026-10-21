@@ -33,10 +33,10 @@ Status legend: [x] committed to GitHub, [ ] pending; "validate" means not yet te
 - [ ] Add contextual internal links between related services, ports, team credentials and survey guides.
 - [ ] Validate descriptions against client's real service offering; avoid keyword stuffing or made-up claims.
 
-## Phase 3 — Port-based local SEO pages (NOT STARTED)
-- [ ] Design /ports/colombo, /ports/galle, /ports/hambantota and /ports/trincomalee with existing PageHero/components.
-- [ ] Add distinct, verified port-operational content, useful questions and service links; avoid duplicate doorway pages.
-- [ ] Add metadata, canonicals, breadcrumbs and sitemap entries after publishing each page.
+## Phase 3 — Port-based local SEO pages (IN PROGRESS)
+- [x] Add /ports/colombo, /ports/galle, /ports/hambantota and /ports/trincomalee with existing PageHero/components.
+- [x] Add differentiated port descriptions, enquiry planning advice, questions and relevant service links (client review pending).
+- [x] Add port-specific metadata, canonicals, breadcrumb schema and sitemap entries.
 - [ ] Confirm port attendance eligibility, service scope, addresses and any permissions with client.
 
 ## Phase 4 — Performance, testing and measurement (NOT STARTED)
@@ -65,6 +65,7 @@ npm run dev
 Then inspect the HTML and Google tools in the deployment environment. Do **not** run dev and build concurrently with a shared output directory.
 
 ## Change log
+- 2026-10-21: Phase 3 starter: four port landing pages and internal directory links, metadata and sitemap; client operational review pending.
 - 2026-10-21: User confirmed successful build and SEO smoke tests. Expanded editorial preparation/reporting guidance to all 13 service pages; pending qualified surveyor review.
 - 2026-10-21: User verified all local SEO smoke checks pass and production build succeeds (31/31 pages). Phase 2 initial service-content enhancements committed; client verification pending.
 - 2026-10-21: Legacy audit pass — mapped known indexed service URLs, added SEO regression script; complete Search Console audit remains outstanding.
