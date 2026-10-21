@@ -26,7 +26,8 @@ Status legend: [x] committed to GitHub, [ ] pending; "validate" means not yet te
 ## Phase 2 — Service content and AI discovery (IN PROGRESS)
 - [x] Add source-derived preparation, deliverable examples and clear limitations for five priority service pages (client review required).
 - [x] Add contextual links to /team, /ports and /certifications from service detail pages.
-- [ ] Expand priority service pages with accurate methodology, evidence requirements, limitations, typical deliverables and professionally reviewed FAQs.
+- [x] Add preparation, example deliverables and limitations to all 13 service pages (editorial only; professional review pending).
+- [ ] Professionally review methodologies, evidence requirements and existing FAQs against real operating procedures.
 - [ ] Review existing certificate and survey claims with named qualified staff; do not describe expired certificates as current.
 - [ ] Create approved technical guides and case studies with genuine first-party expertise.
 - [ ] Add contextual internal links between related services, ports, team credentials and survey guides.
@@ -64,6 +65,7 @@ npm run dev
 Then inspect the HTML and Google tools in the deployment environment. Do **not** run dev and build concurrently with a shared output directory.
 
 ## Change log
+- 2026-10-21: User confirmed successful build and SEO smoke tests. Expanded editorial preparation/reporting guidance to all 13 service pages; pending qualified surveyor review.
 - 2026-10-21: User verified all local SEO smoke checks pass and production build succeeds (31/31 pages). Phase 2 initial service-content enhancements committed; client verification pending.
 - 2026-10-21: Legacy audit pass — mapped known indexed service URLs, added SEO regression script; complete Search Console audit remains outstanding.
 - 2026-10-21: Phase 1 starter commit — homepage canonical/metadata, local-business structured data, service entity references, sitemap and robots adjustments. Existing visual theme untouched.
