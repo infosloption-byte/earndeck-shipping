@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, type CSSProperties } from 'react';
+import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { LANKA_PATH, LANKA_VIEWBOX, PORT_POSITIONS } from '@/lib/lanka';
 import { ports } from '@/lib/site';
@@ -69,9 +70,11 @@ export function PortsExplorer() {
               onMouseEnter={() => setActive(p)}
               onMouseLeave={() => setActive(null)}
             >
-              <span className="n">0{i + 1}</span>
-              <strong>{p}</strong>
-              <ArrowUpRight size={22} aria-hidden="true" />
+              <Link className="port-list-link" href={'/ports/' + p.toLowerCase()} aria-label={'Explore marine surveys in ' + p}>
+                <span className="n">0{i + 1}</span>
+                <strong>{p}</strong>
+                <ArrowUpRight size={22} aria-hidden="true" />
+              </Link>
             </li>
           ))}
         </ul>
