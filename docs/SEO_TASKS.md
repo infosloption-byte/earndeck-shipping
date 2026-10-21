@@ -42,7 +42,8 @@ Status legend: [x] committed to GitHub, [ ] pending; "validate" means not yet te
 - [ ] Confirm port attendance eligibility, service scope, addresses and any permissions with client.
 
 ## Phase 4 — Performance, testing and measurement (IN PROGRESS)
-- [x] Extend smoke tests to check all four port pages, canonical markup, sitemap inclusion and shared navigation links (local run pending).
+- [x] Extend smoke tests to check all four port pages, canonical markup, sitemap inclusion and shared navigation links (user verified all passed on localhost:5177).
+- [x] Add scripts/audit-site.mjs to crawl sitemap pages for titles, descriptions, single canonical, H1, HTML lang, internal links and image alt presence (local execution pending).
 - [ ] Browser QA at 320, 375, 425, 589, 768, 1024 and 1440px.
 - [ ] Lighthouse and CrUX LCP/INP/CLS baseline, optimize real largest contentful images and avoid layout shifts.
 - [ ] Verify no hydration errors or 404 static assets; check image alt text and document preview performance.
@@ -68,6 +69,7 @@ npm run dev
 Then inspect the HTML and Google tools in the deployment environment. Do **not** run dev and build concurrently with a shared output directory.
 
 ## Change log
+- 2026-10-21: User verified all 35 pages build and all SEO smoke tests pass, including port links. Added site-wide SEO crawl audit; browser QA and Core Web Vitals remain pending.
 - 2026-10-21: Confirmed user build 35/35. Connected shared port section to port pages, adjusted CTA margin/mobile CSS, and expanded SEO smoke tests; local browser QA pending.
 - 2026-10-21: Phase 3 starter: four port landing pages and internal directory links, metadata and sitemap; client operational review pending.
 - 2026-10-21: User confirmed successful build and SEO smoke tests. Expanded editorial preparation/reporting guidance to all 13 service pages; pending qualified surveyor review.
