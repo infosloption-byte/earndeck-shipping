@@ -12,6 +12,8 @@ export function Header() {
   const [solid, setSolid] = useState(false);
   const [mobile, setMobile] = useState(false);
   const [mega, setMega] = useState(false);
+  const [mobileServices, setMobileServices] = useState(false);
+  const [mobileGroup, setMobileGroup] = useState<string | null>(null);
   const closeTimer = useRef<number | undefined>(undefined);
   const openedByHover = useRef(false);
   const navItemRef = useRef<HTMLDivElement>(null);
@@ -28,6 +30,8 @@ export function Header() {
   useEffect(() => {
     setMobile(false);
     setMega(false);
+    setMobileServices(false);
+    setMobileGroup(null);
   }, [pathname]);
 
   // lock scroll behind the mobile menu
@@ -153,14 +157,26 @@ export function Header() {
       </header>
 
       <div id="mobile-menu" className={mobile ? 'mobile-menu open' : 'mobile-menu'}>
-        <Link href="/services">Services</Link>
-        <div className="m-sub">
-          {services.map((s) => (
-            <Link key={s.slug} href={'/services/' + s.slug}>
-              {s.name}
-            </Link>
-          ))}
+        <div className="mobile-nav-heading">
+          <Link href="/services">Services</Link>
+          <button type="button" aria-label={mobileServices ? 'Collapse services' : 'Expand services'} aria-expanded={mobileServices} aria-controls="mobile-services-panel" onClick={() => setMobileServices(v => !v)}>
+            <ChevronDown size={19} className={mobileServices ? 'chevron-open' : ''} aria-hidden="true" />
+          </button>
         </div>
+        {mobileServices && <div className="mobile-services-panel" id="mobile-services-panel">
+          <Link className="mobile-all-services" href="/services">View all services <ArrowUpRight size={15} aria-hidden="true" /></Link>
+          {serviceGroups.map(group => {
+            const expanded = mobileGroup === group.name;
+            return <div className="mobile-service-group" key={group.name}>
+              <button type="button" aria-expanded={expanded} onClick={() => setMobileGroup(expanded ? null : group.name)}>
+                <span>{group.name}</span><ChevronDown size={17} className={expanded ? 'chevron-open' : ''} aria-hidden="true"/>
+              </button>
+              {expanded && <div className="mobile-service-links">
+                {services.filter(service => service.group === group.name).map(service => <Link href={'/services/' + service.slug} key={service.slug}>{service.name}</Link>)}
+              </div>}
+            </div>;
+          })}
+        </div>}
         <Link href="/about">About</Link>
         <Link href="/team">Our team</Link>
         <Link href="/careers">Careers</Link><Link href="/certifications">Certifications</Link>
