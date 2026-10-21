@@ -123,7 +123,7 @@ export function Header() {
                 </div>
               </div>
             </div>
-            <Link className="nav-link" href="/about#team">
+            <Link className={is('/team') ? 'nav-link active' : 'nav-link'} href="/team">
               Team
             </Link>
             <Link className={is('/about') ? 'nav-link active' : 'nav-link'} href="/about">
@@ -131,7 +131,7 @@ export function Header() {
             </Link>
             <Link className="nav-link" href="/careers">Careers</Link>
             <Link className="nav-link" href="/certifications">Certifications</Link>
-            <Link className="nav-link" href="/about#ports">
+            <Link className={is('/ports') ? 'nav-link active' : 'nav-link'} href="/ports">
               Port coverage
             </Link>
             <Link className="btn btn-primary nav-cta" href="/contact">
@@ -162,9 +162,9 @@ export function Header() {
           ))}
         </div>
         <Link href="/about">About</Link>
-        <Link href="/about#team">Our team</Link>
+        <Link href="/team">Our team</Link>
         <Link href="/careers">Careers</Link><Link href="/certifications">Certifications</Link>
-        <Link href="/about#ports">Port coverage</Link>
+        <Link href="/ports">Port coverage</Link>
         <Link className="btn btn-primary" href="/contact">
           Request a survey <ArrowUpRight size={18} aria-hidden="true" />
         </Link>

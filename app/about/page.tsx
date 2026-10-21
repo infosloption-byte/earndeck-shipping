@@ -5,7 +5,6 @@ import { ArrowUpRight, Eye, FileText, Ruler } from 'lucide-react';
 import { CtaBand } from '@/components/CtaBand';
 import { PageHero } from '@/components/PageHero';
 import { PortsExplorer } from '@/components/PortsExplorer';
-import { TeamGrid } from '@/components/TeamGrid';
 import { frameworks, ports, process } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -151,7 +150,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section section-white" id="team" style={{ scrollMarginTop: 40 }}>
+      <section className="section section-white" id="team-preview" style={{ scrollMarginTop: 40 }}>
         <div className="shell">
           <div className="section-head reveal" style={{ marginBottom: 22 }}>
             <div>
@@ -164,7 +163,7 @@ export default function About() {
           <p className="team-intro reveal">
             The surveyors and operations professionals who plan, attend and report on every assignment.
           </p>
-          <TeamGrid />
+          <Link className="btn btn-primary" href="/team">Meet the full team <ArrowUpRight size={18}/></Link>
         </div>
       </section>
 

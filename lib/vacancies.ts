@@ -1,0 +1,6 @@
+/** Illustrative postings only. No confirmed open vacancies until approved by the company. */
+export const vacancies=[
+{id:'assistant-marine-surveyor',title:'Assistant Marine Surveyor',department:'Survey operations',location:'Sri Lanka · Port attendance',summary:'Support marine surveyors with field observations, measurements, records and survey reports.',requirements:['Interest in maritime operations or marine engineering','Attention to detail and clear report writing','Willingness to attend port assignments']},
+{id:'marine-operations-coordinator',title:'Marine Operations Coordinator',department:'Operations',location:'Sri Lanka · Office & field coordination',summary:'Help coordinate survey attendance, client communication and inspection documentation.',requirements:['Excellent organization and communication','Ability to coordinate changing vessel schedules','Comfort with operational reporting tools']},
+{id:'junior-technical-inspector',title:'Junior Technical Inspector',department:'Technical services',location:'Sri Lanka · Field assignments',summary:'Assist with vessel condition observations, technical inspection preparation and supporting documentation.',requirements:['Technical or marine engineering interest','Safety-conscious fieldwork practices','Strong documentation skills']}
+] as const;

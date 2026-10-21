@@ -23,8 +23,9 @@ export function Footer() {
           <div>
             <h3>Explore</h3>
             <Link href="/about">About us</Link>
+            <Link href="/team">Our team</Link>
             <Link href="/services">All services</Link>
-            <Link href="/about#ports">Port coverage</Link>
+            <Link href="/ports">Port coverage</Link>
             <Link href="/contact">Request a survey</Link>
             <Link href="/careers">Marine careers</Link>
             <Link href="/certifications">Certifications</Link>
