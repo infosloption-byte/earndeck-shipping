@@ -1,1 +1,6 @@
-export default function Loading(){return <div className="route-progress" role="status" aria-live="polite"><img src="/earndeck-logo.png" alt="Earndeck Shipping"/><div className="route-progress-line"/><p>Loading maritime services</p></div>}
+import { LogoLoader } from '@/components/LogoLoader';
+
+/** Shown by Next.js while a route's content is still being prepared on the server. */
+export default function Loading() {
+  return <LogoLoader label="Loading page" />;
+}

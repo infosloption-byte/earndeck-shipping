@@ -211,7 +211,7 @@ export default function Home() {
       <section className="frameworks-band">
         <div className="shell frameworks-inner">
           <div className="reveal">
-            <BrandMark size={40} />
+            <BrandMark height={46} tone="dark" />
             <h2 style={{ marginTop: 18 }}>
               Reviews referenced to <em>recognised frameworks.</em>
             </h2>

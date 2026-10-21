@@ -30,6 +30,9 @@ export function ServiceGrid({ items, featured = false, finderCard = false, filte
   const [active, setActive] = useState<string>('All');
   const Heading = headingLevel;
   const all = active === 'All';
+  // Cells used by the cards before the finder card (a featured first card spans two columns).
+  const cells = featured ? items.length + 1 : items.length;
+  const ctaClass = (cells + 1) % 3 === 0 ? 'svc-card svc-cta-card cta-1' : 'svc-card svc-cta-card';
 
   return (
     <>
@@ -76,7 +79,7 @@ export function ServiceGrid({ items, featured = false, finderCard = false, filte
           </Link>
         ))}
         {finderCard && (
-          <a href="#finder" className={all ? 'svc-card svc-cta-card' : 'svc-card svc-cta-card hidden'}>
+          <a href="#finder" className={all ? ctaClass : ctaClass + ' hidden'}>
             <div className="svc-top">
               <span className="svc-icon">
                 <ArrowRight size={24} strokeWidth={1.6} aria-hidden="true" />

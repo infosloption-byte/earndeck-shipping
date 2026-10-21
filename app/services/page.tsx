@@ -37,7 +37,7 @@ export default function Services() {
 
       <section className="section section-white" style={{ paddingTop: 90 }}>
         <div className="shell">
-          <ServiceGrid items={items} headingLevel="h2" />
+          <ServiceGrid items={items} finderCard headingLevel="h2" />
         </div>
       </section>
 
