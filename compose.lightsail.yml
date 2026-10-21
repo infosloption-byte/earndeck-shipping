@@ -1,0 +1,23 @@
+services:
+  earndeck:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: earndeck-shipping:local
+    container_name: earndeck_shipping
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5187:3000"
+    env_file:
+      - .env.production
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      HOSTNAME: "0.0.0.0"
+    security_opt:
+      - no-new-privileges:true
+    read_only: false
+    tmpfs:
+      - /tmp:size=64m
+    mem_limit: 512m
+    pids_limit: 200
