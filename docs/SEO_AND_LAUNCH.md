@@ -1,7 +1,7 @@
 # SEO, AI-discovery and launch checklist
 
 ## Content architecture
-- Public indexable routes: /, /services, nine /services/[slug] pages, /about, /contact, /privacy.
+- Public indexable routes: /, /services, all /services/[slug] pages, /about, /contact, /privacy.
 - Each service has a distinct page, plain-English process, purpose, audience and visible FAQs.
 - Metadata and service-specific JSON-LD are server generated. AI discovery relies primarily on accessible, factual page text, not special AI meta tags.
 - Verify all statements about certifications, associations, response times, years of experience and statutory authorizations with the client before publication.

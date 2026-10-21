@@ -5,7 +5,8 @@ import { ArrowUpRight, Eye, FileText, Ruler } from 'lucide-react';
 import { CtaBand } from '@/components/CtaBand';
 import { PageHero } from '@/components/PageHero';
 import { PortsExplorer } from '@/components/PortsExplorer';
-import { frameworks, ports, process, team } from '@/lib/site';
+import { TeamGrid } from '@/components/TeamGrid';
+import { frameworks, ports, process } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'About Our Marine Survey Company',
@@ -150,17 +151,23 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section section-white" id="team">
+      <section className="section section-white" id="team" style={{ scrollMarginTop: 40 }}>
         <div className="shell">
-          <div className="section-head"><div><div className="eyebrow">The people behind the surveys</div><h2>Meet our <em>marine team.</em></h2></div></div>
-          <p className="team-intro">Meet the professionals associated with Earndeck Shipping. The team list and roles are pending final confirmation.</p>
-          <div className="team-grid">{team.map((member) => <article className="team-card" key={member.name}>
-            <div className="team-avatar" aria-hidden="true">{member.name.split(' ').map(part => part[0]).join('')}</div>
-            <div className="team-bio"><h3>{member.name}</h3><span>{member.role}</span><p>{member.description}</p></div>
-          </article>)}</div>
-          <p className="team-caption">Portrait photographs and detailed biographies will be added once approved by the company.</p>
+          <div className="section-head reveal" style={{ marginBottom: 22 }}>
+            <div>
+              <div className="eyebrow">The people behind the surveys</div>
+              <h2 style={{ marginBottom: 0 }}>
+                Meet our <em>marine team.</em>
+              </h2>
+            </div>
+          </div>
+          <p className="team-intro reveal">
+            The surveyors and operations professionals who plan, attend and report on every assignment.
+          </p>
+          <TeamGrid />
         </div>
       </section>
+
       <CtaBand />
     </>
   );

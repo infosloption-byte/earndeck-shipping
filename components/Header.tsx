@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState, type FocusEvent } from 'react';
 import { ArrowUpRight, ChevronDown, Menu, X } from 'lucide-react';
 import { Brand } from './Brand';
-import { NavigationProgress } from './NavigationProgress';
 import { serviceGroups, services } from '@/lib/site';
 
 export function Header() {
@@ -14,6 +13,8 @@ export function Header() {
   const [mobile, setMobile] = useState(false);
   const [mega, setMega] = useState(false);
   const closeTimer = useRef<number | undefined>(undefined);
+  const openedByHover = useRef(false);
+  const navItemRef = useRef<HTMLDivElement>(null);
 
   // solid background once the page scrolls
   useEffect(() => {
@@ -47,13 +48,36 @@ export function Header() {
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
+  // tapping/clicking outside the menu closes it (touch devices have no hover-out)
+  useEffect(() => {
+    if (!mega) return;
+    const onDown = (e: PointerEvent) => {
+      if (navItemRef.current && !navItemRef.current.contains(e.target as Node)) setMega(false);
+    };
+    document.addEventListener('pointerdown', onDown);
+    return () => document.removeEventListener('pointerdown', onDown);
+  }, [mega]);
+
   const openMega = () => {
     window.clearTimeout(closeTimer.current);
+    openedByHover.current = true;
     setMega(true);
   };
   const closeMegaSoon = () => {
     window.clearTimeout(closeTimer.current);
-    closeTimer.current = window.setTimeout(() => setMega(false), 140);
+    closeTimer.current = window.setTimeout(() => {
+      openedByHover.current = false;
+      setMega(false);
+    }, 140);
+  };
+  // A click right after hover-opening must not slam the menu shut again; a second click toggles it.
+  const onServicesClick = () => {
+    if (openedByHover.current) {
+      openedByHover.current = false;
+      setMega(true);
+    } else {
+      setMega((v) => !v);
+    }
   };
   const onBlur = (e: FocusEvent<HTMLDivElement>) => {
     if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setMega(false);
@@ -63,19 +87,18 @@ export function Header() {
 
   return (
     <>
-      <NavigationProgress />
       <header className={solid || mobile ? 'site-header is-solid' : 'site-header'}>
         <div className="shell nav">
           <Brand />
 
           <nav className="nav-links" aria-label="Main navigation">
-            <div className="nav-item" onMouseEnter={openMega} onMouseLeave={closeMegaSoon} onBlur={onBlur}>
+            <div className="nav-item" ref={navItemRef} onMouseEnter={openMega} onMouseLeave={closeMegaSoon} onBlur={onBlur}>
               <button
                 type="button"
                 className={is('/services') ? 'nav-link active' : 'nav-link'}
                 aria-expanded={mega}
                 aria-controls="services-menu"
-                onClick={() => setMega((v) => !v)}
+                onClick={onServicesClick}
               >
                 Services <ChevronDown size={16} aria-hidden="true" />
               </button>
@@ -100,7 +123,9 @@ export function Header() {
                 </div>
               </div>
             </div>
-            <Link className={is('/team') ? 'nav-link active' : 'nav-link'} href="/about#team">Team</Link>
+            <Link className="nav-link" href="/about#team">
+              Team
+            </Link>
             <Link className={is('/about') ? 'nav-link active' : 'nav-link'} href="/about">
               About
             </Link>
@@ -134,7 +159,8 @@ export function Header() {
             </Link>
           ))}
         </div>
-        <Link href="/about">About</Link><Link href="/about#team">Our team</Link>
+        <Link href="/about">About</Link>
+        <Link href="/about#team">Our team</Link>
         <Link href="/about#ports">Port coverage</Link>
         <Link className="btn btn-primary" href="/contact">
           Request a survey <ArrowUpRight size={18} aria-hidden="true" />

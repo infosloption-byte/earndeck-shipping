@@ -19,7 +19,11 @@ export type IconName =
   | 'ship'
   | 'shield'
   | 'lifebuoy'
-  | 'layers';
+  | 'layers'
+  | 'cog'
+  | 'search'
+  | 'compass'
+  | 'shieldalert';
 
 export const serviceGroups: { name: ServiceGroup; blurb: string }[] = [
   { name: 'Cargo & Quantity', blurb: 'Quantity, condition and certification of cargo.' },
@@ -137,7 +141,7 @@ export const services = [
     name: 'Hull & Machinery Inspections',
     category: 'Vessel Technical Condition',
     group: 'Technical & Navigation',
-    icon: 'ship',
+    icon: 'cog',
     description: 'Independent hull, machinery condition and repair-progress inspections.',
     details: 'Technical condition observations covering accessible hull and machinery components, damage and repair works.',
     points: ['Hull and machinery condition checks','Damage documentation','Repair monitoring and reporting'],
@@ -147,7 +151,7 @@ export const services = [
     name: 'Pre-Purchase Inspections & Ship Vetting',
     category: 'Vessel Acquisition',
     group: 'Technical & Navigation',
-    icon: 'shield',
+    icon: 'search',
     description: 'Technical condition and operational document reviews supporting vessel acquisition decisions.',
     details: 'Pre-purchase surveys and ship vetting assess agreed technical, operational and compliance aspects before an acquisition or charter decision.',
     points: ['Condition and machinery review','Operational records and documentation','Observations for purchase due diligence'],
@@ -157,7 +161,7 @@ export const services = [
     name: 'Compass Adjustment & Magnetic Correction',
     category: 'Navigation & Safety',
     group: 'Technical & Navigation',
-    icon: 'ship',
+    icon: 'compass',
     description: 'Magnetic compass adjustment, deviation assessment and navigation-related reporting.',
     details: 'Compass adjustment supports the reliability of a vessel’s magnetic heading reference through agreed inspection and correction work.',
     points: ['Compass and deviation assessment','Adjustment and magnetic correction','Applicable observation and reporting records'],
@@ -167,7 +171,7 @@ export const services = [
     name: 'P&I Condition Surveys',
     category: 'Vessel Risk & Condition',
     group: 'Technical & Navigation',
-    icon: 'shield',
+    icon: 'shieldalert',
     description: 'Independent vessel condition inspections for marine risk and protection-and-indemnity considerations.',
     details: 'P&I condition surveys document observable vessel conditions and risks according to the agreed scope for owners, managers and marine insurers.',
     points: ['Accessible vessel condition inspection','Relevant equipment and risk observations','Evidence-based condition reporting'],
@@ -209,21 +213,24 @@ export const scenarios: { id: string; label: string; hint: string; slugs: Servic
     slugs: ['cargo-certification', 'container-survey'],
   },
   {
+    id: 'acquisition',
+    label: 'We are buying or chartering a vessel',
+    hint: 'You need an independent view of condition and records before committing.',
+    slugs: ['pre-purchase-vetting', 'hull-machinery-inspection', 'pi-condition-survey'],
+  },
+  {
+    id: 'technical',
+    label: 'Hull, machinery or navigation equipment needs checking',
+    hint: 'You want technical condition, repairs or compass accuracy documented.',
+    slugs: ['hull-machinery-inspection', 'compass-adjustment', 'pi-condition-survey'],
+  },
+  {
     id: 'compliance',
     label: 'We need a safety or compliance review',
     hint: 'You want your safety, labour or management systems reviewed.',
     slugs: ['ism-audit', 'mlc-inspection', 'harmonized-audit'],
   },
 ];
-
-export const team = [
-  { name: 'G. Thusith Fonseka', role: 'Managing Director / Deputy Principal Marine Surveyor', description: 'Marine surveying leadership and operations coordination, as listed on the legacy company website.' },
-  { name: 'Ajith Fernando', role: 'Director of Operations', description: 'Operations leadership and marine industry coordination.' },
-  { name: 'Hasitha Sandaruwan', role: 'Head of Operations', description: 'Operational planning and survey coordination.' },
-  { name: 'Prasanga Mallawaarachchi', role: 'Marine Surveyor', description: 'Marine surveying and vessel-related inspections.' },
-  { name: 'Clishal Perera', role: 'Marine Surveyor', description: 'Marine inspection and survey assignments.' },
-] as const;
-// Team roster is based on publicly available profiles and must be confirmed by the company before launch.
 
 export const process = [
   {

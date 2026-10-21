@@ -18,9 +18,10 @@ Open http://localhost:5177. For production checks, run `npm run typecheck` and `
 - Editorial design system (Fraunces / Manrope / IBM Plex Mono via `next/font`, navy + amber palette) in a readable `app/globals.css`
 - Homepage: animated draft-scale hero, filterable service grid, "Survey finder", process timeline, Sri Lanka port map, frameworks band
 - Services menu in the header, mobile menu, scroll-reveal animation (content stays visible without JS)
-- Nine server-rendered service pages (scope, process, audience, FAQ, related services) with FAQPage JSON-LD
+- Thirteen server-rendered service pages in four groups (scope, process, audience, FAQ, related services) with FAQPage JSON-LD
 - About, contact (service prefill from `?service=`) and privacy pages
-- All visuals are custom SVG: no stock photography or licensing needed
+- Real company logo in light/dark colourways, animated logo page loader, and a Team section with drop-in portraits (see `docs/BRAND_AND_TEAM.md`)
+- Illustrations are custom SVG: no stock photography or licensing needed
 - Per-page SEO metadata, canonical URLs, sitemap and robots directives
 - Organization and Service JSON-LD
 - Initial legacy redirect examples (not a complete migration map)
