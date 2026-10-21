@@ -1,0 +1,34 @@
+name: Vendor and verify service images
+on:
+  push:
+    paths:
+      - 'scripts/vendor-service-images.py'
+      - '.github/workflows/vendor-service-images.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  vendor-images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image dependencies
+        run: python -m pip install "requests>=2.32,<3" "pillow>=11,<13"
+      - name: Download, validate and convert to WebP
+        run: python scripts/vendor-service-images.py
+      - name: Commit verified images and local source paths
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/images/services/ lib/service-photos.ts components/ServiceGrid.tsx
+          if git diff --staged --quiet; then
+            echo "Image assets already up to date."
+          else
+            git commit -m "assets: vendor verified service photography into public directory"
+            git push
+          fi
