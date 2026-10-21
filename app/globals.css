@@ -2520,3 +2520,6 @@ html.is-loading {
 h1 em,h2 em,h3 em{color:var(--amber-deep)}
 .on-dark h1 em,.on-dark h2 em,.on-dark h3 em,.section-dark h2 em{color:var(--amber)}
 .footer-word{color:rgba(143,195,207,.26)}
+
+/* Lighthouse verified small-label text contrast on white/ivory surfaces. */
+.team-role,.credential-type{color:#9e4e17}

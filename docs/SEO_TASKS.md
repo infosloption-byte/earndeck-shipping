@@ -75,6 +75,7 @@ npm run dev
 Then inspect the HTML and Google tools in the deployment environment. Do **not** run dev and build concurrently with a shared output directory.
 
 ## Change log
+- 2026-10-21: Second round of six mobile Lighthouse reports reviewed. Brand link label mismatch persisted, so accessible name now follows visible text; small amber team/certificate labels darkened slightly for contrast. Homepage and certification TBT remain variable. Colombo second run had screenshot protocol timeout; retest needed.
 - 2026-10-21: Analyzed six mobile Lighthouse JSON reports (performance 73–87, accessibility 94–96). Recorded measurements and initial targeted accessibility adjustments; verification pending.
 - 2026-10-21: User verified production preview: typecheck and build passed (35/35), sitemap audit passed (26 pages, 0 errors/warnings), asset check passed (10 pages, 57 distinct local assets). Field Core Web Vitals and manual responsive/accessibility checks still pending.
 - 2026-10-21: User confirmed 35/35 build and clean audit of 26 sitemap pages (0 errors, 0 warnings). Added asset-loading smoke test and browser QA procedure; field performance and visual QA still pending.

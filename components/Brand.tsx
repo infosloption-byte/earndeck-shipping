@@ -42,7 +42,7 @@ export function Logo({ width = 220, tone = 'light', alt = 'Earndeck Shipping' }:
 /** Header / footer lockup: emblem + wordmark text, coloured for the surface it sits on. */
 export function Brand({ tone = 'light', onClick }: { tone?: Tone; onClick?: () => void }) {
   return (
-    <Link href="/" className={tone === 'dark' ? 'brand brand-on-light' : 'brand'} aria-label="Earndeck Shipping home" onClick={onClick}>
+    <Link href="/" className={tone === 'dark' ? 'brand brand-on-light' : 'brand'} onClick={onClick}>
       <BrandMark tone={tone} />
       <span className="brand-text">
         <strong>EARNDECK</strong>
