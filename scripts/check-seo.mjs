@@ -62,9 +62,26 @@ for (const route of ['/', '/services', '/services/draft-survey', '/team', '/port
   check(/rel="canonical"/i.test(html), route + ' canonical');
   check(/application\/ld\+json/i.test(html), route + ' JSON-LD');
 }
+for (const port of ['colombo', 'galle', 'hambantota', 'trincomalee']) {
+  const route = '/ports/' + port;
+  const response = await fetch(base + route);
+  const html = await response.text();
+  check(response.ok, route + ' HTTP ' + response.status);
+  check(html.includes('<title>') && /rel="canonical"/i.test(html), route + ' title and canonical');
+  check(html.includes('application/ld+json'), route + ' structured data');
+}
+for (const route of ['/', '/about', '/ports']) {
+  const html = await (await fetch(base + route)).text();
+  for (const port of ['colombo', 'galle', 'hambantota', 'trincomalee']) {
+    check(html.includes('/ports/' + port), route + ' links to /ports/' + port);
+  }
+}
 const [robots, sitemap] = await Promise.all([fetch(base + '/robots.txt'), fetch(base + '/sitemap.xml')]);
 check(robots.ok && (await robots.text()).includes('sitemap.xml'), 'robots sitemap declaration');
-check(sitemap.ok && (await sitemap.text()).includes('/services/draft-survey'), 'sitemap contains service URL');
+const sitemapText = await sitemap.text();
+check(sitemap.ok && sitemapText.includes('/services/draft-survey'), 'sitemap contains service URL');
+for (const port of ['colombo', 'galle', 'hambantota', 'trincomalee'])
+  check(sitemapText.includes('/ports/' + port), 'sitemap includes /ports/' + port);
 const missing = await fetch(base + '/not-a-real-earndeck-page');
 check(missing.status === 404, 'unknown page returns 404');
 if (failures) {
