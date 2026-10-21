@@ -2535,3 +2535,9 @@ h1 em,h2 em,h3 em{color:var(--amber-deep)}
 .svc-photo-card .svc-top,.svc-photo-card .svc-body{z-index:1}
 .svc-photo-card .svc-arrow{color:white;border-color:rgba(255,255,255,.65)}
 @media(prefers-reduced-motion:reduce){.svc-photo-card .svc-photo img{transition:none}.svc-photo-card:hover .svc-photo img{transform:none}}
+
+/* Service photography, editorial and educational rather than client-owned work. */
+.service-detail-photo{margin:0 0 46px}.service-detail-photo-frame{position:relative;width:100%;height:clamp(230px,34vw,405px);border-radius:var(--radius-lg);overflow:hidden;background:var(--navy-800)}.service-detail-photo-frame img{object-fit:cover}.service-detail-photo figcaption{font-size:11px;line-height:1.5;color:var(--muted);margin:9px 0 0}
+/* Finder: recommendations adjacent on wide screens and immediately after selection on mobile. */
+.finder{grid-template-columns:1fr;gap:30px}.finder-intro{max-width:800px}.finder-intro p{max-width:760px}.finder-workspace{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:22px;align-items:start}.finder-desktop-result{position:sticky;top:calc(var(--header-h) + 20px)}.finder-desktop-result .finder-result{margin-top:0}.finder-mobile-result{display:none}.finder-opts{min-width:0}
+@media(max-width:850px){.finder-workspace{grid-template-columns:1fr}.finder-desktop-result{display:none}.finder-mobile-result{display:block}.finder-mobile-result .finder-result{margin:0 0 10px;padding:20px;animation:none}.finder-opt{padding:16px 18px}}

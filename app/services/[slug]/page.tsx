@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
+import { servicePhotos } from '@/lib/service-photos';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight, Check, Mail, MapPin, Phone, Plus, Users } from 'lucide-react';
 import { CtaBand } from '@/components/CtaBand';
@@ -32,6 +34,7 @@ export default async function ServicePage({ params }: Props) {
   const { slug } = await params;
   const s = services.find((x) => x.slug === slug);
   if (!s) notFound();
+  const photo = servicePhotos[slug];
   const info = content[slug];
   const guidance = serviceGuidance[slug];
   if (!info) notFound();
@@ -109,6 +112,7 @@ export default async function ServicePage({ params }: Props) {
       <section className="section" style={{ paddingTop: 90 }}>
         <div className="shell detail-layout">
           <article className="detail-main">
+            {photo && <figure className="service-detail-photo reveal"><div className="service-detail-photo-frame"><Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 1000px) 100vw, 760px" quality={75} /></div><figcaption>Illustrative maritime photography · {photo.credit}. Not an Earndeck assignment photograph.</figcaption></figure>}
             <section id="overview" className="reveal">
               <div className="eyebrow">Overview</div>
               <h2>

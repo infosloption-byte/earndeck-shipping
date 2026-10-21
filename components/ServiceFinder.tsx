@@ -12,36 +12,7 @@ export function ServiceFinder() {
     ? scenario.slugs.map((slug) => services.find((s) => s.slug === slug)).filter((s) => s !== undefined)
     : [];
 
-  return (
-    <div className="finder">
-      <div className="finder-intro reveal">
-        <div className="eyebrow light">Survey finder</div>
-        <h2>
-          Not sure which survey <em>you need?</em>
-        </h2>
-        <p>
-          Choose the situation closest to yours and we&rsquo;ll show the services that usually fit. Scope is always
-          confirmed with our team before attendance.
-        </p>
-      </div>
-
-      <div className="reveal" style={{ '--d': '120ms' } as CSSProperties}>
-        <div className="finder-opts" role="group" aria-label="Choose your situation">
-          {scenarios.map((s) => (
-            <button
-              key={s.id}
-              type="button"
-              className="finder-opt"
-              aria-pressed={selected === s.id}
-              onClick={() => setSelected(s.id)}
-            >
-              <span className="dot" aria-hidden="true" />
-              {s.label}
-            </button>
-          ))}
-        </div>
-
-        <div className="finder-result" aria-live="polite" key={selected ?? 'none'}>
+  const panel = (        <div className="finder-result" aria-live="polite" key={selected ?? 'none'}>
           {scenario ? (
             <>
               <p className="hint">{scenario.hint}</p>
@@ -64,7 +35,38 @@ export function ServiceFinder() {
               Select a situation above to see the surveys that fit.
             </p>
           )}
+        </div>);
+  return (
+    <div className="finder">
+      <div className="finder-intro reveal">
+        <div className="eyebrow light">Survey finder</div>
+        <h2>
+          Not sure which survey <em>you need?</em>
+        </h2>
+        <p>
+          Choose the situation closest to yours and we&rsquo;ll show the services that usually fit. Scope is always
+          confirmed with our team before attendance.
+        </p>
+      </div>
+
+      <div className="finder-workspace reveal" style={{ '--d': '120ms' } as CSSProperties}>
+        <div className="finder-opts" role="group" aria-label="Choose your situation">
+          {scenarios.map((s) => (
+            <div className="finder-choice" key={s.id}><button
+              key={s.id}
+              type="button"
+              className="finder-opt"
+              aria-pressed={selected === s.id}
+              onClick={() => setSelected(s.id)}
+            >
+              <span className="dot" aria-hidden="true" />
+              {s.label}
+            </button>
+            {selected === s.id && <div className="finder-mobile-result">{panel}</div>}
+            </div>
+          ))}
         </div>
+        <div className="finder-desktop-result">{panel}</div>
       </div>
     </div>
   );

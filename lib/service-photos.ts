@@ -1,0 +1,15 @@
+export const servicePhotos: Record<string, { src: string; alt: string; credit: string }> = {
+ 'draft-survey': {src:'https://images.unsplash.com/photo-1689798448813-0ded9659ad9b',alt:'Bulk carrier underway, showing the hull whose draught is measured during cargo surveys',credit:'Martti Salmi / Unsplash'},
+ 'bunker-quantity-survey': {src:'https://images.unsplash.com/photo-1685720543547-cc4873188c75',alt:'Marine vessel engine control room with equipment related to fuel operations',credit:'Dmitrijs Safrans / Unsplash'},
+ 'cargo-survey': {src:'https://images.unsplash.com/photo-1742576437150-3a79cae681f2',alt:'Bulk cargo vessel during loading at a port terminal',credit:'Pix Tresa / Unsplash'},
+ 'container-survey': {src:'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b',alt:'Intermodal containers stacked in a commercial shipping terminal',credit:'CHUTTERSNAP / Unsplash'},
+ 'cargo-certification': {src:'https://images.unsplash.com/photo-1769144256227-5185141c3aca',alt:'Shipping containers being organized at a cargo terminal',credit:'Daniel Miksha / Unsplash'},
+ 'on-off-hire-survey': {src:'https://images.unsplash.com/photo-1763736809655-9337caf643cc',alt:'Crew member communicating on a vessel bridge during ship operations',credit:'Jonathan Borba / Unsplash'},
+ 'ism-audit': {src:'https://images.unsplash.com/photo-1676405034160-a389faf8331d',alt:'Vessel navigation bridge with multiple radar and operations displays',credit:'Tom Donders / Unsplash'},
+ 'mlc-inspection': {src:'https://images.unsplash.com/photo-1763736809655-9337caf643cc',alt:'Seafarer working on the bridge of a ship',credit:'Jonathan Borba / Unsplash'},
+ 'harmonized-audit': {src:'https://images.unsplash.com/photo-1688413399498-e35ed74b554f',alt:'Maritime bridge instruments and operational monitoring equipment',credit:'iSawRed / Unsplash'},
+ 'hull-machinery-inspection': {src:'https://images.unsplash.com/photo-1758574697274-ebbbd08ec0d9',alt:'Welder working on ship hull structures during dry-dock maintenance',credit:'Navy Medicine / Unsplash'},
+ 'pre-purchase-vetting': {src:'https://images.unsplash.com/photo-1689798448813-0ded9659ad9b',alt:'Bulk carrier at sea, representative of the vessels assessed during pre-purchase surveys',credit:'Martti Salmi / Unsplash'},
+ 'compass-adjustment': {src:'https://images.unsplash.com/photo-1776347568367-e8f56443648f',alt:'Close-up photograph of a marine compass mounted on a boat',credit:'Marc Wieland / Unsplash'},
+ 'cargo-certification-alt': {src:'https://images.unsplash.com/photo-1742576437150-3a79cae681f2',alt:'Bulk cargo loading operations',credit:'Pix Tresa / Unsplash'},
+};
