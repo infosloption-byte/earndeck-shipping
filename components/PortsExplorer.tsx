@@ -2,6 +2,8 @@
 
 import { useState, type CSSProperties } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { portPhotos } from '@/lib/port-photos';
 import { ArrowUpRight } from 'lucide-react';
 import { LANKA_PATH, LANKA_VIEWBOX, PORT_POSITIONS } from '@/lib/lanka';
 import { ports } from '@/lib/site';
@@ -71,6 +73,7 @@ export function PortsExplorer() {
               onMouseLeave={() => setActive(null)}
             >
               <Link className="port-list-link" href={'/ports/' + p.toLowerCase()} aria-label={'Explore marine surveys in ' + p}>
+                <span className="port-link-image"><Image src={portPhotos[p.toLowerCase() as keyof typeof portPhotos].src} alt="" fill sizes="88px" quality={75} /></span>
                 <span className="n">0{i + 1}</span>
                 <strong>{p}</strong>
                 <ArrowUpRight size={22} aria-hidden="true" />

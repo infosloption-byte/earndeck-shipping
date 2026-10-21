@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 5177",
-    "build": "node scripts/check-service-images.mjs && next build",
+    "build": "node scripts/check-service-images.mjs && node scripts/check-port-images.mjs && next build",
     "start": "next start -p 5177",
     "typecheck": "tsc --noEmit",
     "seo:audit": "node scripts/audit-site.mjs",
     "qa:assets": "node scripts/check-assets.mjs",
-    "qa:service-images": "node scripts/check-service-images.mjs"
+    "qa:service-images": "node scripts/check-service-images.mjs",
+    "qa:port-images": "node scripts/check-port-images.mjs"
   },
   "dependencies": {
     "next": "^15.5.0",
