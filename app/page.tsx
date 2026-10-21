@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Marine Surveyors in Sri Lanka | Earndeck Shipping',
+  title: { absolute: 'Marine Surveyors in Sri Lanka | Earndeck Shipping' },
   description: 'Independent marine surveyors in Sri Lanka for draft surveys, bunker quantity checks, cargo inspections and vessel surveys at Colombo, Galle, Hambantota and Trincomalee.',
   alternates: { canonical: '/' },
   openGraph: { title: 'Marine Surveyors in Sri Lanka | Earndeck Shipping', description: 'Independent cargo, vessel and marine survey services across Sri Lanka\'s major ports.', url: '/' },
