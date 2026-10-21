@@ -11,6 +11,8 @@ const nextConfig: NextConfig = {reactStrictMode:true,poweredByHeader:false,async
 {source:'/services/harmonized',destination:'/services/harmonized-audit',permanent:true},
 {source:'/services/hull',destination:'/services/hull-machinery-inspection',permanent:true},
 {source:'/services/prepurchase',destination:'/services/pre-purchase-vetting',permanent:true},
-{source:'/services/compass',destination:'/services/compass-adjustment',permanent:true}
+{source:'/services/compass',destination:'/services/compass-adjustment',permanent:true},
+{source:'/marine-careers',destination:'/careers',permanent:true},
+{source:'/marine-certificates',destination:'/certifications',permanent:true}
 ];}};
 export default nextConfig;
