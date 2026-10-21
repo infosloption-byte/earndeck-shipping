@@ -2436,3 +2436,27 @@ html.is-loading {
 
 /* Theme-matched hero instrumentation: self-contained CSS animation, no hydration state. */
 .page-art.page-art-animated{width:340px;height:340px;right:max(4vw,42px);top:50%;margin-top:calc(var(--header-h)/2 - 170px);border:0;background:none;opacity:.82;pointer-events:none}.page-art-animated::before,.page-art-animated::after{display:none}.maritime-illustration{position:relative;width:100%;height:100%;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(143,195,207,.28);background:radial-gradient(circle,rgba(47,131,151,.22),rgba(7,29,46,.03) 67%)}.maritime-orbit{position:absolute;border-radius:50%;inset:24px;border:1px dashed rgba(143,195,207,.42)}.maritime-orbit-outer{animation:maritime-orbit 38s linear infinite}.maritime-orbit-inner{inset:67px;border-style:solid;border-color:rgba(242,140,69,.44);animation:maritime-orbit 24s linear infinite reverse}.maritime-orbit-inner::after{content:'';position:absolute;top:-5px;left:50%;width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 18px var(--amber)}.maritime-sweep{position:absolute;inset:28px;border-radius:50%;background:conic-gradient(from 45deg,transparent 0deg,rgba(143,195,207,.09) 35deg,transparent 70deg);animation:maritime-orbit 9s linear infinite}.maritime-illustration-core{display:grid;place-items:center;width:142px;height:142px;border-radius:50%;background:rgba(7,29,46,.72);border:1px solid rgba(143,195,207,.32);color:var(--amber);animation:maritime-float 6s ease-in-out infinite}.maritime-illustration-core svg{width:88px;height:88px;stroke-width:1.2}.page-art-center{position:absolute;z-index:2;display:grid;place-items:center;width:142px;height:142px;color:var(--amber)}.page-art-center svg{width:80px;height:80px}.page-art-animated:has(.page-art-center) .maritime-illustration-core{opacity:.1}.maritime-point{position:absolute;width:6px;height:6px;border-radius:50%;background:#8fc3cf;box-shadow:0 0 14px #8fc3cf}.maritime-point-one{top:12%;left:26%}.maritime-point-two{top:70%;right:4%}.maritime-point-three{bottom:8%;left:24%}.maritime-art-label,.maritime-art-coordinates{position:absolute;font:500 9px var(--font-mono),monospace;letter-spacing:.13em;color:var(--sea-300);white-space:nowrap}.maritime-art-label{top:7%;left:50%;transform:translateX(-50%)}.maritime-art-coordinates{bottom:5%;left:50%;transform:translateX(-50%)}@keyframes maritime-orbit{to{transform:rotate(360deg)}}@keyframes maritime-float{50%{transform:translateY(-7px)}}@media(max-width:1050px){.page-art.page-art-animated{right:0;width:240px;height:240px;margin-top:calc(var(--header-h)/2 - 120px);opacity:.3}.maritime-art-label,.maritime-art-coordinates{display:none}.maritime-illustration-core{width:110px;height:110px}.maritime-orbit-inner{inset:51px}}@media(max-width:760px){.page-art.page-art-animated{display:grid;right:-100px;top:60%;width:250px;height:250px;opacity:.17}.page-art-center{width:110px;height:110px}.page-art-center svg{width:65px;height:65px}}@media(prefers-reduced-motion:reduce){.maritime-orbit,.maritime-sweep,.maritime-illustration-core{animation:none!important}}
+
+/* Compact navigation loader (including Next.js route loading fallback). */
+.loader-stack{width:170px;height:170px}
+.loader-logo{width:106px}
+.loader-logo .brand-logo{width:106px;height:auto}
+.loader-bar{width:150px}
+.page-loader{gap:16px}
+@media(max-width:600px){.loader-stack{width:145px;height:145px}.loader-logo{width:92px}.loader-logo .brand-logo{width:92px}.loader-bar{width:130px}}
+
+/* Accessible two-level mobile Services accordion. */
+.mobile-nav-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line-dark)}
+.mobile-nav-heading>a{font-family:var(--font-display),serif;font-size:34px;flex:1;padding:12px 0}
+.mobile-nav-heading button,.mobile-service-group>button{border:0;background:transparent;color:inherit;display:flex;align-items:center;justify-content:space-between;cursor:pointer}
+.mobile-nav-heading button{min-width:44px;min-height:44px;justify-content:center;border-radius:8px}
+.mobile-nav-heading button:hover,.mobile-service-group>button:hover{color:var(--amber)}
+.mobile-nav-heading svg,.mobile-service-group svg{transition:transform .25s ease}
+.mobile-nav-heading svg.chevron-open,.mobile-service-group svg.chevron-open{transform:rotate(180deg)}
+.mobile-services-panel{padding:10px 0 18px 16px;border-bottom:1px solid var(--line-dark)}
+.mobile-all-services{display:flex;align-items:center;gap:10px;color:var(--amber);font-size:14px;font-weight:700;padding:12px 0 18px}
+.mobile-service-group{border-top:1px solid rgba(255,255,255,.12)}
+.mobile-service-group>button{width:100%;min-height:48px;text-align:left;padding:12px 4px;font-size:15px;font-weight:700;gap:10px}
+.mobile-service-links{display:grid;gap:0;padding:0 0 12px 15px}
+.mobile-service-links a{font-size:14px;line-height:1.5;padding:10px 8px;color:rgba(255,255,255,.78)}
+.mobile-service-links a:hover,.mobile-service-links a:focus-visible{color:var(--amber)}
