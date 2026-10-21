@@ -2523,3 +2523,15 @@ h1 em,h2 em,h3 em{color:var(--amber-deep)}
 
 /* Lighthouse verified small-label text contrast on white/ivory surfaces. */
 .team-role,.credential-type{color:#9e4e17}
+
+/* Homepage expertise photography: original cards, icons, layout and filters remain unchanged. */
+.svc-photo-card{isolation:isolate;background:#0b2a3f!important;color:#fff!important}
+.svc-photo-card .svc-photo{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.svc-photo-card .svc-photo img{object-fit:cover;object-position:center;filter:saturate(.76);transition:transform .55s var(--ease),filter .55s var(--ease)}
+.svc-photo-card::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(4,19,30,.42) 0%,rgba(4,19,30,.6) 40%,rgba(4,19,30,.94) 100%);pointer-events:none}
+.svc-photo-card:hover .svc-photo img{transform:scale(1.055);filter:saturate(.95)}
+.svc-photo-card .svc-cat,.svc-grid.featured .svc-photo-card .svc-cat{color:#ffba89}
+.svc-photo-card p,.svc-grid.featured .svc-photo-card p{color:#e0e8ec}
+.svc-photo-card .svc-top,.svc-photo-card .svc-body{z-index:1}
+.svc-photo-card .svc-arrow{color:white;border-color:rgba(255,255,255,.65)}
+@media(prefers-reduced-motion:reduce){.svc-photo-card .svc-photo img{transition:none}.svc-photo-card:hover .svc-photo img{transform:none}}

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { ServiceIcon } from './ServiceIcon';
@@ -14,6 +15,22 @@ export type ServiceItem = {
   icon: IconName;
   description: string;
 };
+
+const expertisePhotos: Record<string, { src: string; alt: string }> = {
+  'draft-survey': { src: 'https://images.unsplash.com/photo-1606185540834-d6e7483ee1a4', alt: 'Commercial cargo vessel approaching a container terminal' },
+  'bunker-quantity-survey': { src: 'https://images.unsplash.com/photo-1606185540834-d6e7483ee1a4', alt: 'Commercial vessel at a busy port' },
+  'cargo-survey': { src: 'https://images.unsplash.com/photo-1606185540834-d6e7483ee1a4', alt: 'Cargo ship with containers and harbour tugboats' },
+  'container-survey': { src: 'https://images.unsplash.com/photo-1606185540834-d6e7483ee1a4', alt: 'Shipping containers onboard a commercial vessel' },
+  'cargo-certification': { src: 'https://images.unsplash.com/photo-1606185540834-d6e7483ee1a4', alt: 'Commercial cargo and port infrastructure' },
+  'on-off-hire-survey': { src: 'https://images.unsplash.com/photo-1579722176915-95d4ee62565e', alt: 'Ship bridge officer operating navigation controls' },
+  'ism-audit': { src: 'https://images.unsplash.com/photo-1579722176915-95d4ee62565e', alt: 'Navigation watch on a vessel bridge' },
+  'mlc-inspection': { src: 'https://images.unsplash.com/photo-1579722176915-95d4ee62565e', alt: 'Professional ship bridge operations' },
+  'harmonized-audit': { src: 'https://images.unsplash.com/photo-1579722176915-95d4ee62565e', alt: 'Maritime safety and navigation workstation' },
+  'hull-machinery-inspection': { src: 'https://images.unsplash.com/photo-1606185540834-d6e7483ee1a4', alt: 'Commercial ship alongside an industrial terminal' },
+  'pre-purchase-vetting': { src: 'https://images.unsplash.com/photo-1579722176915-95d4ee62565e', alt: 'Marine vessel bridge observation' },
+  'compass-adjustment': { src: 'https://images.unsplash.com/photo-1579722176915-95d4ee62565e', alt: 'Navigation instruments and officer on a vessel' },
+};
+const getExpertisePhoto = (slug: string) => expertisePhotos[slug] ?? { src: 'https://images.unsplash.com/photo-1606185540834-d6e7483ee1a4', alt: 'Working commercial vessel in port' };
 
 type Props = {
   items: ServiceItem[];
@@ -61,8 +78,9 @@ export function ServiceGrid({ items, featured = false, finderCard = false, filte
           <Link
             key={s.slug}
             href={'/services/' + s.slug}
-            className={all || s.group === active ? 'svc-card' : 'svc-card hidden'}
+            className={all || s.group === active ? (featured ? 'svc-card svc-photo-card' : 'svc-card') : 'svc-card hidden'}
           >
+            {featured && <div className="svc-photo" aria-hidden="true"><Image src={getExpertisePhoto(s.slug).src} alt="" fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" quality={75} loading="lazy" /></div>}
             <div className="svc-top">
               <span className="svc-icon">
                 <ServiceIcon name={s.icon} />
