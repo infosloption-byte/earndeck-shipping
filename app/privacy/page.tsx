@@ -33,6 +33,9 @@ export default function Privacy() {
             operations team. Do not include passwords, identity documents or unnecessary sensitive personal data in your
             message.
           </p>
+          <h2>Career applications</h2>
+          <p>When you apply through the Careers page, the company receives your name, contact details, stated experience, position of interest and uploaded PDF CV through its designated email provider. These details are used to review your expression of interest and contact you about relevant opportunities. Sample role profiles do not represent confirmed vacancies.</p>
+          <p>Do not submit identity cards, passport scans or other unnecessary sensitive information. The company must establish its retention schedule, deletion procedures and authorized recruitment recipients before production launch.</p>
           <h2>Retention and requests</h2>
           <p>
             Contact {site.email} to request access, correction or deletion where applicable. Retention periods and the
